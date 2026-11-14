@@ -99,3 +99,4 @@ assert not caught, [(str(w.message), w.filename) for w in caught]
         [sys.executable, "-B", "-c", code], env=env, capture_output=True, text=True, timeout=60
     )
     assert result.returncode == 0, result.stdout + result.stderr
+    assert result.stdout.strip() == "", result.stdout
