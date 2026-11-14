@@ -1,8 +1,10 @@
 {
   "repository": "Query-farm/vgi-bls",
-  "revision": "31dd76f1483762430d42eb61125c76bb32b2df50",
+  "revision": "55d970b5d51d931c8e75ae7925483e08df76491b",
   "files": {
     "bls_example.py": "31a7e2f7bfcc0303e37abbdd9d5b1b3a848856cf1edfa0ee3b7ffb5960646f1d",
-    "fixtures/discovery.json": "a544638c0ac70c9b0d133c44d074bbdf5a78c9ae7ea04fb7f39b344690469140"
+    "fixtures/discovery.json": "a544638c0ac70c9b0d133c44d074bbdf5a78c9ae7ea04fb7f39b344690469140",
+    "cpi_recording.py": "125cffb3f46ba86459d804b123820db36b9f7a7c2d62b9fbfb0b30a6bf7e2cd5",
+    "fixtures/cpi-observations-derived.json": "3dea57fa43238cbde1306eb42907550ed5a7a340a6d3059e4d45d00cce01e6e3"
   }
 }
