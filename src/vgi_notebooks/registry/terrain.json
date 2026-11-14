@@ -1,0 +1,7 @@
+{
+  "repository": "Query-farm/vgi-terrain",
+  "revision": "92a52efd0c6a0727a068b4d462a5faf9b191b9a1",
+  "files": {
+    "terrain_fixture.py": "82cb350c6325e3d244c09d1243c79bbf296d3ae3e4b9e66c7d3e9ff4e3a70ff9"
+  }
+}

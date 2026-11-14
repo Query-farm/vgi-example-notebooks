@@ -1,0 +1,9 @@
+{
+  "repository": "Query-farm/vgi-hydrology",
+  "revision": "46987e8b8f9394e2456ec318e287458a3c15efad",
+  "files": {
+    "fixtures/basin.tif": "f56af5564ae2cecd488c25eeb922f8eba03bc4c6a4a5aef7783a736f9f5ebdae",
+    "fixtures/landcover.tif": "5dea9a2d4a20c6c8633cde8309d1aeb83205e58222ed0910510ec62e4a736019",
+    "inventory_fixture.py": "92f345b6ba01dd99616381684772597b29b022ef7d20cc918e71e61e82e18cc0"
+  }
+}
