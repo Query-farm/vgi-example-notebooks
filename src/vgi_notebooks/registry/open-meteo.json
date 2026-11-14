@@ -1,0 +1,7 @@
+{
+  "repository": "Query-farm/vgi-open-meteo",
+  "revision": "8bc37d8a9ea3424a93d5253b233a0990d26e244a",
+  "files": {
+    "open_meteo_example.py": "a855a9aaaba17fd8a433adf95638ec6d49d718f009e715eaca091968b316bee6"
+  }
+}

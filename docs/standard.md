@@ -34,7 +34,14 @@ appropriate for optional prose, not a workaround for hiding executable cell inpu
 
 Pin the worker to a published release, prefer a release binary when available,
 and otherwise use a short uvx Git-tag command. The release/package owns dependency
-compatibility. A long transitive --with list does not belong in teaching SQL.
+compatibility. For registered Bun releases without published executables,
+`vgi-bun-worker Query-farm/vgi-open-meteo@v0.4.0` downloads the official
+checksum-verified Bun runtime on macOS/glibc Linux, verifies the Git release tag,
+and installs the unchanged frozen lock with install hooks disabled. It interprets
+the released TypeScript directly; it does not build the worker. The managed cache
+is separate from notebook dependencies and requires Git plus network access on
+the first run. Setup diagnostics use stderr, leaving stdout for VGI.
+ A long transitive --with list does not belong in teaching SQL.
 The PII v0.4.0 release needs one explicitly documented exception: its English
 spaCy model is absent from runtime dependencies. The presentation validator accepts
 only the exact released worker plus official en_core_web_sm 3.8.0 wheel command;
