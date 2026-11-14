@@ -1,0 +1,14 @@
+{
+  "repository": "Query-farm/vgi-symbols",
+  "revision": "5e610ee67f4c52f9950cfd65216071deb962ac08",
+  "directory": "notebooks",
+  "files": {
+    "fixtures/build_frames.py": "0990bd9008bd1a6227a73ff4c4d3a7e92d2459f2e851c3ee8ab9b7a73fc92eb1",
+    "fixtures/frames.json": "9986f1dbd325643e3200efadbd5c2fbc9587cf0af8c868a7b533cc6316ccd460",
+    "fixtures/macho_compute.dwarf": "b66a3316ea15ae466d1184ee96794bf49cd44cbd95f74b3f8e1302cbb53bd71d",
+    "fixtures/macho_inline.dwarf": "45383c9baaa8b3e93ac986317e6784c068012c51a192d0f03504cdaeb6fa96a9",
+    "fixtures/manifest.json": "6c22ac5ce1db0ab7b66b0a7627f64d1d04692fb9e6e10bfff89e623d22197fa0",
+    "fixtures/prog.c": "6346f8b3fce52c911c49523ce0e6e84f84cad63815088dae3ed03e66f75fcf84",
+    "fixtures/prog2.c": "e5e2ecb082168e8feaa2fd313821a29b317b1c9147261592c4a96c04a95016d7"
+  }
+}

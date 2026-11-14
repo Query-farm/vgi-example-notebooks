@@ -1,0 +1,12 @@
+{
+  "repository": "Query-farm/vgi-opengraph",
+  "revision": "8798ff23e56c6e31b03d9a84ec4b49a60ca3fabe",
+  "files": {
+    "opengraph_example.py": "bd457b851b1b3305f798b479ec90c42d9a26839a7a3bb5dd4ab184aa23e83536",
+    "fixtures/LICENSE-worker.txt": "3a050700300e105cf3ae2934282fdc5a966e17c8f609a6b8abfd1c56f730c50e",
+    "fixtures/pages.json": "9603fe13594ea7a8bf1b25ce2f3e7c13fb71cb8ac043af629d16c7b21eefe9ef",
+    "fixtures/provenance.json": "6725b599104bdd8705738728d2788daea4507fcd7dfc434159de460327f5471c",
+    "fixtures/requests.json": "67ae747df6e78f38f03bc243c25e46c65cb4882bd7b58c8837d4e72bfc458194",
+    "fixtures/responses.json": "a79b3eaa53d77feaba008911efeb09f5485c8940c8d851c2f7b5e59b6032eb5b"
+  }
+}
