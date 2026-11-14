@@ -1,0 +1,16 @@
+{
+  "repository": "Query-farm/vgi-boe",
+  "revision": "74d7abbb0ca0c90f6c7e398b9a36e9861832d6b7",
+  "files": {
+    "boe_example.py": "fbd3d1803ac2a8362d9464b4f2b6466036292c7a16b8a35aedb190331216eaaa",
+    "revision_fixture.py": "2d8b953565d052fbdd0c5c5893c3d3c4db419ac9aa01b359486f40dd4d88d01a",
+    "recorded_api.py": "8f6c2595863fe4b746875f3436789805e90233ea94228d41635c4436c2224cc2",
+    "recordings/.gitattributes": "8dd3e41ca85e6594c28f76aba28f351f605100c90ea2ac761bb80dcd6865a65f",
+    "recordings/IUDBEDR-2023-anchor.xml": "8a08a88abfcaf3b46c3ab34b14615e04511eaf62c076c1b619bb0665ce0dd73b",
+    "recordings/IUDBEDR-2023-year.xml": "f4aeb2f032fc45183a3b172fbc6ff60697b1be353c8c6bc374c5638378077a11",
+    "recordings/IUDBEDR-2024-anchor.xml": "b661a5c44bbbd78787cd43046e574734a00cec9cec9d14f71cd79c7673e59671",
+    "recordings/IUDBEDR-2024-year.xml": "87086506f855b4bc479a88ad50d7f7fed25c17082cbbfab7dd63931d20c72bb4",
+    "recordings/README.md": "37e9004f1c536cbb6f913296c914e278bd73805964125efcbebaafd9d24a5b93",
+    "recordings/manifest.json": "d7446e71aedb2f329002a23a36a35f7313b01a45a2eea3b2a71b44fac8ce2851"
+  }
+}
