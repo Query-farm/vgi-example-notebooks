@@ -1,0 +1,14 @@
+{
+  "repository": "Query-farm/vgi-pe",
+  "revision": "fce0ee9bd24cca25d0a59a33dc55635e800cc023",
+  "files": {
+    "pe_example.py": "7bef5833409d13b5ed2a11f813a541caca770f833a7e4a3ddc00f274afee307b",
+    "fixtures/LICENSE-worker-MIT.txt": "ba79bf2f5744098357fd6f51ecc78ea5f556c25c435697e36cc2204bafb17dc8",
+    "fixtures/empty.bin": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "fixtures/garbage.bin": "b7d5a335f90fc2ca83afa72928e36e45b5e213198e69f9813651d019dc66643b",
+    "fixtures/hello.exe": "6ee8fc82a363f756c2f61c967d7c6f5f47ddd4da98d79b333c41739412e75b13",
+    "fixtures/hello_elf": "d115f77ab013d0028279e1ba32e6a00d331ce6e99157f1203e60314aff3499ce",
+    "fixtures/hello_macho": "d9cac4f49149007d1b4ab1132bd566f0c06dae4316bce1d0d17777a38afe1abd",
+    "fixtures/manifest.json": "faaf78d50acac79ecb508db54305c989d7dea033d782c27c061d3ffe960404ac"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "repository": "Query-farm/vgi-tika",
+  "revision": "fbe9bce2524010aa5b0ec8f4456c05f4082fa1b5",
+  "directory": "notebooks",
+  "files": {
+    "tika_release.py": "56faa271a603a13500cf28dbb3de6b328132166ad41c0e5664fa766ddd7bacd7",
+    "tika_release.py.lock": "891364a097f1d0acecaf929ed6bf808445cd0bd13a588f4d2f8cad11dbe2acac",
+    "build_fixture.py": "e91126bd31c90d07c68b69db7528018261992f917a057fa530a2228fd959fd3e",
+    "build_scan.py": "21dea2361013230691ad9e80a2db96690abbd9cbfcf2077508c724234d40a2f0",
+    "assets/brief.html": "fd26dc18dc8078301eda1f1c819d39bbe4f9311d84482c85f2f8af05c07f11ed",
+    "assets/corrupt.pdf": "83bfda5405fd7189393078ee59ae3bf502977eda4fbf955813807027c500913f",
+    "assets/field-guide.pdf": "a9546bf431c6b4b4622957583fb6cab4f8d9e2cc72e7e2bcc221b8f1e20b48f7",
+    "assets/scan-card.png": "c8d4c5f6ec262029c19aad1bbba3d8895678e6869a430cc813e1ac6351c62df7",
+    "assets/scan-manifest.json": "c581c472a6618e9cd36566bc88f0e4f2f0b9f14eff43341a86e22392064e7a61",
+    "assets/support-note.docx": "2c90440e88a9a80a970be9312f76132d723f6b972328bf4bbafe7a799294af16",
+    "assets/whitespace.txt": "23307147cb1c206737290e7668072d32c83ce5e2085281a4351fb3746bd02de3"
+  }
+}

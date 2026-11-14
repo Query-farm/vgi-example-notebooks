@@ -1,0 +1,12 @@
+{
+  "repository": "Query-farm/vgi-feed",
+  "revision": "1d0f8760b7760a6ce06e583f496f53bcd962e68d",
+  "files": {
+    "feed_example.py": "99a78b045121b49e3cebdbe82250c150b3110e0e4baaad578e616a55dc9e30ed",
+    "fixtures/LICENSE-worker.txt": "ba79bf2f5744098357fd6f51ecc78ea5f556c25c435697e36cc2204bafb17dc8",
+    "fixtures/README.md": "a224151bf75b6a2d8c29d277e5b24a1190e7c548b8c41c476f8ed2c77b4a574e",
+    "fixtures/feed.atom": "ce801bceff6d8ad5bd9234be8075c6a43ee7a7104b0b2ffe559de6858cb579eb",
+    "fixtures/feed.json": "7f5646b0c4ce1109040aade1d4f8f2ac4ec044a98a58724ad20b27fb76aa4c2b",
+    "fixtures/feed.rss": "8d011841ae0473a7197ad2b4d65bbf17cb0a684274a59da9bd6e82ea1f7e4cc6"
+  }
+}
