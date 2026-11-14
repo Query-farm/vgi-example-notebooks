@@ -1,0 +1,16 @@
+{
+  "repository": "Query-farm/vgi-treasury",
+  "revision": "8c193efbca17a1633bbcf95d8fb7e36868e95a26",
+  "files": {
+    "recorded_api.py": "9f4f0a021604ccbdbbe246d6facc8af525d8f8f886450921fd02ba25ba01df50",
+    "multi_recorded_api.py": "785812215575bf60eb0c3134b8c1b9ddd98bfec43d3e21e45d193d75eb5045f4",
+    "fixtures/cash-2024-page-1.json": "d7685eac82c5401e8913e56b5107e5a67e602bb8b5ac7a5b089a4117c04d93d5",
+    "fixtures/debt-january-2024.json": "3abeb91377615e82df11cba31777930d8efb6abc26830e86b43d3f395cd8c334",
+    "fixtures/deposits-2024-page-1.json": "06dd48ba382d731fe989a9ffa0c0137cd466961645fa05fbfa8f5ceac618aef8",
+    "fixtures/discovery-provenance.json": "e4f0191fe0ae77e6c6f7e43c41e968321d00116eccacea9abf9717ac52cead27",
+    "fixtures/monthly-2024-page-1.json": "24c4a234829fe3e68788b62d37ffa5f2c0f25f46552184b3656a8fc4bd46ae2c",
+    "fixtures/provenance.json": "d70b5d74e1f604bf1b8ffbd6e94f3e4d35408d43d4f8425004041b554ef17a8a",
+    "fixtures/rates-2024-page-1.json": "d2257dc09d13b24204fb20d8b1d70b35807bfeab74092580d04fb658f55ef688",
+    "fixtures/transactions-2024-page-1.json": "f85d96a1a977cfee2571d816173afecaabdeb1821c100017b5465eff37f85f82"
+  }
+}

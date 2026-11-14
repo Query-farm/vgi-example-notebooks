@@ -1,0 +1,8 @@
+{
+  "repository": "Query-farm/vgi-bea",
+  "revision": "63355910285bb2a1d21e86280e4234e08305b44a",
+  "files": {
+    "bea_fixture.py": "b72bb8fb961b6dea8e5eb73b152d1f64dc8e3574414b2808e7532bb37400b452",
+    "synthetic_api.py": "b5bdadd20bd5a953f7e1bd6558807932df9969d2cf25b0240eace019d77ea2a0"
+  }
+}
