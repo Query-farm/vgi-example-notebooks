@@ -1,0 +1,8 @@
+{
+  "repository": "Query-farm/vgi-kalshi",
+  "revision": "f07d86a23436625ef027383156af8e84336433ab",
+  "files": {
+    "kalshi_surfaces.py": "7f1357ffcb1217d9377951fcbc7ec720a5ea818cbd0488e675725938bd75f9d0",
+    "surface_fixtures.json": "253fa2a51daa6eecbbf4ccb197af8914f5c8b9ed1e5e9a7dded8f2a0971a8a15"
+  }
+}

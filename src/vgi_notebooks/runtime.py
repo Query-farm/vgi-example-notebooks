@@ -27,6 +27,7 @@ def load_sql(ipython):
             # Compiler warnings carry the source filename, not a reliable module name.
             warnings.simplefilter("always", SyntaxWarning)
             from sql import display
+            from sql.connection import ConnectionManager
 
             message, message_html = display.message, display.message_html
 
@@ -50,6 +51,10 @@ def load_sql(ipython):
             with (
                 patch.object(display, "message", without_config_tip),
                 patch.object(display, "message_html", without_config_link),
+                # The notebook supplies its isolated connection explicitly.
+                patch.object(
+                    ConnectionManager, "load_default_connection_from_file_if_any", return_value=None
+                ),
             ):
                 ipython.run_line_magic("load_ext", "sql")
     finally:

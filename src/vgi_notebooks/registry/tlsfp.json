@@ -1,0 +1,17 @@
+{
+  "repository": "Query-farm/vgi-tlsfp",
+  "revision": "8a5e69bf370cac3d059bb435cc92033e4621de55",
+  "files": {
+    "tlsfp_example.py": "d171012191ffc3b339da1092cf7cef773036daae8fbab42ae2c4131785f3d7d0",
+    "fixtures/base.bin": "2045aa58baedf5997a13955af3a6f1e424420c9c39956eab64fcd01bbcaec05a",
+    "fixtures/different-grease.bin": "38442256e838e34d08786e663834be1617f264903e0a24a987400e1383af64d1",
+    "fixtures/header-only.bin": "e99cf09bf6a5a268a7481bf2db081c7caf54f7287ae5ee164016a184593a0fa1",
+    "fixtures/long.pem": "3b54f7250b2bde85d1ab785f66b47c90ecd13526a05c503301ff4cc0b0580dee",
+    "fixtures/not-handshake.bin": "488d41f2df19e9609081372e7d78f378f9197f56f88aa956867bb78ade7afe21",
+    "fixtures/other-server.bin": "b54619662273d2b898083cebd405be7ff13ec66107245a5f3fc553096ca71e75",
+    "fixtures/record.bin": "30cd4b6c381e0cab2e38b1a804d3b11a13ffbf4b60bfe3a7ecb9a721a2d322fb",
+    "fixtures/reversed-ciphers.bin": "0e2b0a82a2d5e53fc1b5fdaf7113cb86a1b2ff2e6b510832d78ad51ffcfee4a9",
+    "fixtures/server-hello.bin": "2d8f1797ffac570330f1759eeea1ed66c60d5460d0b6348c0594e36074e9e6a8",
+    "fixtures/shared-soon.pem": "262eda221cf463d1ddebc073e8a53c2080cc3335408ef7734ea6309b9d0b7100"
+  }
+}

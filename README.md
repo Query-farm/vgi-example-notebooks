@@ -1,7 +1,7 @@
 # VGI example notebooks
 
 Shared tooling and the authoring standard for Query.Farm's executable worker examples.
-The first supported example is Kalshi. Worker notebooks pin a shared-tooling release.
+Kalshi and TLSFP provide the first supported examples. Worker notebooks pin a shared-tooling release.
 
 Worker repositories keep their notebooks, small example-specific helpers, fixtures,
 locked environment, and a short README index. This project owns the standard,
@@ -46,3 +46,14 @@ For development, use `uv sync --locked --extra runner` and `uv run --extra runne
 CI also installs into an environment with the reported Colab dependency versions,
 preloads plotting and kernel libraries, and verifies unchanged versions, `pip check`
 and SVG rendering without a restart.
+
+## Coverage and shared SQL setup
+
+The fleet target is 100% of public named SQL functions/tables for workers with up to
+ten objects, and at least 50% for larger catalogs. The [coverage evidence format](docs/coverage.md)
+keeps actual execution, editorial review, catalog completeness and current/release
+differences explicit. It does not count static references as verified examples.
+
+`connect(globals())` initializes SQL magics with a Haybarn connection isolated from
+saved SQL credentials and JupySQL default connections. It returns a session to close
+at the end. Worker `INSTALL`, `LOAD` and release-based `ATTACH` remain visible SQL.

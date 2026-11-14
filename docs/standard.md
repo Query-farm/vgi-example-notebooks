@@ -64,3 +64,24 @@ real recordings and synthetic data truthfully, isolate SQL credentials before
 connection creation and retain provenance. Test defaults, experiments, empty/missing
 cases where relevant, fresh companion-only execution and supported live reads.
 A working Colab link is distinct from a hosted-Colab execution test; report both honestly.
+
+## Fleet surface coverage
+
+Assess every worker's complete public SQL catalog. A worker with up to ten named
+functions/tables requires **100%** coverage; larger workers require at least **50%**
+(round up to a whole object). Count each `(schema, name)` once, retaining overloads
+and table/function aliases as alternate access forms. Authentication requirements,
+write capability and difficult inputs do not remove an object from the denominator.
+
+Each covered object needs a successful visible SQL invocation used in a focused
+narrative, with returned results and an interpretation. Merely mentioning a name,
+listing a catalog or running an empty diagnostic does not establish that coverage.
+Keep the current public source interface and selected release interface separate;
+unreleased functions remain explicit coverage gaps. Record review and execution
+evidence using [coverage.json and its artifacts](coverage.md).
+
+The shared `connect(globals())` helper creates a disposable empty SQL-secret
+directory and registers the explicit Haybarn connection. SQL extension loading
+does not open a saved JupySQL default connection. Keep worker ATTACH calls visible;
+use `AUTH 'off'` where a worker advertises that option, and omit unsupported options
+for local computation workers.
