@@ -1,0 +1,12 @@
+{
+  "repository": "Query-farm/vgi-ical",
+  "revision": "d22d6fb82ef25aa0569f8527e69577be8201942e",
+  "files": {
+    "ical_example.py": "752d8a32de574ccc83666b5c157f15fd577aa0afe0e4dab92b6a0ec568f37727",
+    "ical_release.py": "6ef5d3978080c8ecfa2a3206c1fd56540fc1346333db6c353bbbd4ea6fc7517f",
+    "ical_release.py.lock": "891364a097f1d0acecaf929ed6bf808445cd0bd13a588f4d2f8cad11dbe2acac",
+    "assets/synthetic-day.ics": "d4718aee99f8856218dd9b2416819ae5031d119860adbf6f6a1205a1cebc5340",
+    "assets/empty.ics": "77f1fb6722a95a27561ac89a37e0b409e1cf109e1c5f24483aa436ccef0d98e0",
+    "assets/unparseable.ics": "9ff66e2fdd770f23003301af4d41bf62c861fa12928909ab2db964893891c335"
+  }
+}

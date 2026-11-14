@@ -1,0 +1,8 @@
+{
+  "repository": "Query-farm/vgi-grammar",
+  "revision": "c65166c49a5d3949b1fd839f7b4886ea11f84f4c",
+  "files": {
+    "grammar_release.py": "eed2f5440b0adbf90e2e889ec8e30aa1414f1499184b7755e4e2909634dab418",
+    "grammar_release.py.lock": "891364a097f1d0acecaf929ed6bf808445cd0bd13a588f4d2f8cad11dbe2acac"
+  }
+}
