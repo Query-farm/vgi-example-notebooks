@@ -1,0 +1,17 @@
+{
+  "repository": "Query-farm/vgi-buoys",
+  "revision": "128fe3d2b1403dd063c6ca27941c5360959d3a7f",
+  "files": {
+    "buoys_example.py": "10fc20de9a301584879743b23f33716c871c45c0ff23ddb420c305a8d9d0c3ed",
+    "recorded_api.py": "a594b60ec6196a8616fb910bfcecbc82e98f6c2b904eaf50ab1b8e45f275621b",
+    "recordings/.gitattributes": "df29c0d80eaa04c63ca38f0c0272168c2829014f9cfcc5f0d8e0d7ca48cddb62",
+    "recordings/44013.txt": "61f4286902282262132e3b4583f110b77f296c02446fbd3ab919ee70709be3ba",
+    "recordings/README.md": "50cae4ad1b4f41ed89a063a41676aa44a463e13387b8771d000072b5ccfad159",
+    "recordings/activestations.xml": "a0aee3c52534237ae442a35750af0aec103b3e70357ee26c9e85a468aaab27f0",
+    "recordings/manifest.json": "a1dfc93d2049e37e78aa42d9ca0064d48f3214a6172242754278e9d8b6a065c3",
+    "latest-recordings/README.md": "82f4676adcc9411f99de460c9225dd7bcd27afc2a6947311f38764ed04c44cd2",
+    "latest-recordings/activestations.xml": "e4dc62665fa4015545a2cd8b580e409de28b7a5d78ca887396cbba4ddeb66bc1",
+    "latest-recordings/latest_obs.txt": "51c35fb36dd2f93fbe5df2da503a88138390b18b270cd3a070c88441b0e81744",
+    "latest-recordings/manifest.json": "1ed5a276e3f299528763b801b01c3ae70b011de0c54c2181e268be7f20b7856c"
+  }
+}
