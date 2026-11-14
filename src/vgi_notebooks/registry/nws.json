@@ -1,0 +1,13 @@
+{
+  "repository": "Query-farm/vgi-nws",
+  "files": {
+    "replay_source.py": "bae8267665c5ac435287890ed6555e6f7fbbec8ff461ade072d5be66c0ada173",
+    "fixtures/point.json": "3179e3e80717ea83a2ebdcd86f94971873a34e51678523318099c8f78b415444",
+    "fixtures/grid.json": "11cddb0c2f402b3d5e306ffeec1e9769ded561083c4f7766826ef6bc64366d95",
+    "fixtures/manifest.json": "49b073ba71db7b23df1cd66c5845d0ce286df9a8ecae4ef043fe7630f8c41983",
+    "scenario_source.py": "96e52c2ada2503605b1f685285380c277efe359937e92a67590830246d966937",
+    "synthetic/scenario.json": "43f71fb8995a969c7cbf73ac156ef80e2ca9bdd9ab8918813c4c692895ff2034",
+    "synthetic/manifest.json": "fef5feadbb29eb13bf6e861f2b2488113040b3bae77e421ac40503f8909b8223"
+  },
+  "revision": "274b5246fe6feb6c7d909c48fbba0949313f6359"
+}
