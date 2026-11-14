@@ -21,7 +21,7 @@ def notebook(location):
         cells=[
             nbformat.v4.new_markdown_cell(header(descriptor["repository"], descriptor["path"])),
             nbformat.v4.new_code_cell(f"%%sql\nATTACH 'pii' (TYPE vgi, LOCATION '{location}');"),
-            nbformat.v4.new_markdown_cell(footer()),
+            nbformat.v4.new_markdown_cell(footer(descriptor["repository"])),
         ],
     )
 

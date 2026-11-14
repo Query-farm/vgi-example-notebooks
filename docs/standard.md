@@ -3,10 +3,15 @@
 ## First and final cells
 
 Every first cell uses the same order: linked Query.Farm Strata Sun wordmark, linked
-VGI product mark, Open in Colab and source links, then the narrative title and
+VGI product mark, an explicit **Worker: [vgi-name](worker-repository-url)** line,
+Open in Colab and source links, then the narrative title and
 question. Marks retain their official colors/proportions. Query.Farm remains the
 publisher; VGI is the product. Use consistent dimensions and alignments across
-workers. The final cell repeats the linked Query.Farm wordmark after cleanup.
+workers. The linked worker name points directly to the worker's GitHub repository,
+so a notebook read outside its checkout still identifies the software it demonstrates.
+The final cell repeats the linked Query.Farm wordmark and named worker repository
+link after cleanup. Generate these cells with `header(repository, notebook_path)`
+and `footer(repository)` from the shared branding module.
 Colab must display branding before execution; relative companion paths need a
 renderer-compatible solution rather than assuming Colab cloned the repository.
 

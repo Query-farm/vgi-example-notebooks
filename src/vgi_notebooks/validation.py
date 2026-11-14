@@ -24,7 +24,7 @@ def validate_presentation(notebook):
     expected = header(descriptor["repository"], descriptor["path"])
     if not cells[0].source.startswith(expected):
         raise ValueError("Header differs from the shared Query.Farm / VGI / Colab standard")
-    if cells[-1].source.strip() != footer().strip():
+    if cells[-1].source.strip() != footer(descriptor["repository"]).strip():
         raise ValueError("Footer differs from the shared Query.Farm standard")
     connections = [
         c
