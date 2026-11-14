@@ -1,0 +1,10 @@
+{
+  "key": "jolt",
+  "repository": "Query-farm/vgi-jolt",
+  "revision": "af39d3770c15f265e286c721438f67c324cfddda",
+  "directory": "notebooks",
+  "files": {
+    "jolt_release.py": "848508aecade2e9d5cb5993bae8391bab0ad92f1caa536c82391edc0767c71c8",
+    "jolt_release.py.lock": "891364a097f1d0acecaf929ed6bf808445cd0bd13a588f4d2f8cad11dbe2acac"
+  }
+}
