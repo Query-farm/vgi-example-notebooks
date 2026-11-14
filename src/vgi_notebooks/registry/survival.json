@@ -1,0 +1,13 @@
+{
+  "repository": "Query-farm/vgi-survival",
+  "revision": "4cc77a5a7060721726f0cfc0919909d8dadcc6f4",
+  "files": {
+    "survival_example.py": "483ad9423b0281f3405677386bce82d719348e42d6019bd498a8458b16db21d9",
+    "generate_fixture.py": "93c7889ae641fd0ee5a8f3b7884ff752d30c0332e1cfb8feace5651b319c6375",
+    "generate_load_fixture.py": "50f2428cf0966bdd2cc84a1c9b999ca35835520692caf2bb1e1841e3f390af1b",
+    "fixtures/followup.csv": "b8e622a3e35c4476fa1a80080dadcbf07467c9b94e56ee9d1f24ef1229ebf1ad",
+    "fixtures/provenance.json": "f60b5f3e94b8fa6119e456ee273501a850f3426e98ad741bda414e1202c7b41f",
+    "fixtures/load_followup.csv": "c18123f790882ad01c07074cc5c8021530340cab38bb9c0cefa350391d0826a5",
+    "fixtures/load_provenance.json": "d6338b0821f5742bccc94452bbafb31b06bc99f4bf87a86460a9246844e862b4"
+  }
+}

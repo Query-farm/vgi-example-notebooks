@@ -1,0 +1,16 @@
+{
+  "repository": "Query-farm/vgi-saml",
+  "revision": "ea38cc63c37cc239e05787ea79f744b82672a1d1",
+  "directory": "notebooks",
+  "files": {
+    "fixtures/cert_ec.sha256": "ff31d6c372f031fba679cce3a3e15a2e132424615c90671a6a089bc1adb6a0e5",
+    "fixtures/cert_rsa.sha256": "ccede5768fa86d761ba64fef138a4ff3f333ea454c5480f58a11aefca8c161c2",
+    "fixtures/manifest.json": "ce7c6788133f9a6669417021f9a035d71a6e573c609c100a734186d57865a3be",
+    "fixtures/signed_response_ec.xml": "9fde9a20177bfcb853b2d667a0ced457ee4ea1a2cb94834559c35d6abad45013",
+    "fixtures/signed_response_rsa.b64": "403f6e8129fd3394fa1f5c83a485f2b3972e63a57cfc3c1eeb2cdf4e9f0822d7",
+    "fixtures/signed_response_rsa.xml": "ee5a520b76195c407933728c352b2e6dc7f3ac2462b416828d586be3aa020b89",
+    "fixtures/tampered_response_rsa.xml": "f61c647f6b67ca97efc4a629841a49f3864f472f540e6bca47964104e28d32e0",
+    "fixtures/unsigned_response.xml": "d673f259bcd534ea3d177465c060708317074b5087d727ffbabb65f1fcea9323",
+    "fixtures/xsw3_response_rsa.xml": "043f3f74ff28f7e2c20c57c7dc29b220f0e3201b86e59dca4dc55b12ebc7eb8d"
+  }
+}
