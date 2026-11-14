@@ -7,9 +7,12 @@ from urllib.parse import quote
 ASSETS = "https://raw.githubusercontent.com/Query-farm/vgi-example-notebooks/v0.1.1/assets"
 
 
-def header(repository, notebook_path):
-    """Use one fixed logo order, sizing, and hosted-notebook action."""
-    worker = PurePosixPath(repository).name
+def header(repository, notebook_path, *, title, subtitle):
+    """Lead with the worker's published title and subtitle, then notebook actions."""
+    if not isinstance(title, str) or not title.strip() or "\n" in title:
+        raise ValueError("Use the worker's nonempty, single-line catalog title")
+    if not isinstance(subtitle, str) or not subtitle.strip():
+        raise ValueError("Use the worker's published catalog subtitle or description")
     source = f"https://github.com/{repository}"
     colab = f"https://colab.research.google.com/github/{repository}/blob/main/{quote(notebook_path)}"
     notes = f"https://github.com/{repository}/blob/main/{quote(str(PurePosixPath(notebook_path).parent))}/README.md"
@@ -17,7 +20,9 @@ def header(repository, notebook_path):
 
 <p><a href="https://query.farm/vgi/"><img src="{ASSETS}/vgi-logo.png" alt="VGI" width="112"></a></p>
 
-**Worker: [{escape(worker)}]({escape(source)})**
+# [{escape(title)}]({escape(source)})
+
+{escape(subtitle)}
 
 [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)]({escape(colab)})
 

@@ -15,11 +15,23 @@ PII = (
 
 
 def notebook(location):
-    descriptor = {"repository": "Query-farm/vgi-pii", "path": "notebooks/01_example.ipynb"}
+    descriptor = {
+        "repository": "Query-farm/vgi-pii",
+        "path": "notebooks/01_example.ipynb",
+        "title": "PII Detection",
+        "subtitle": "Find personal information in text.",
+    }
     return nbformat.v4.new_notebook(
         metadata={"vgi_example": descriptor},
         cells=[
-            nbformat.v4.new_markdown_cell(header(descriptor["repository"], descriptor["path"])),
+            nbformat.v4.new_markdown_cell(
+                header(
+                    descriptor["repository"],
+                    descriptor["path"],
+                    title=descriptor["title"],
+                    subtitle=descriptor["subtitle"],
+                )
+            ),
             nbformat.v4.new_code_cell(f"%%sql\nATTACH 'pii' (TYPE vgi, LOCATION '{location}');"),
             nbformat.v4.new_markdown_cell(footer(descriptor["repository"])),
         ],

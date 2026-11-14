@@ -92,11 +92,23 @@ def test_override_guards_preserve_original(tmp_path, monkeypatch, arguments, err
 
 
 def test_header_drift_rejected_before_execution(tmp_path, monkeypatch):
-    descriptor = {"repository": "Query-farm/example", "path": "notebooks/01_example.ipynb"}
+    descriptor = {
+        "repository": "Query-farm/example",
+        "path": "notebooks/01_example.ipynb",
+        "title": "Example Worker",
+        "subtitle": "An example SQL worker.",
+    }
     notebook = nbformat.v4.new_notebook(
         metadata={"vgi_example": descriptor},
         cells=[
-            nbformat.v4.new_markdown_cell(header(descriptor["repository"], descriptor["path"])),
+            nbformat.v4.new_markdown_cell(
+                header(
+                    descriptor["repository"],
+                    descriptor["path"],
+                    title=descriptor["title"],
+                    subtitle=descriptor["subtitle"],
+                )
+            ),
             nbformat.v4.new_code_cell("VALUE = 2", metadata={"tags": ["parameters"]}),
             nbformat.v4.new_code_cell("%%sql\nATTACH 'example' (TYPE vgi, LOCATION 'released-worker');"),
             nbformat.v4.new_markdown_cell(footer(descriptor["repository"])),

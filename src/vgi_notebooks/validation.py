@@ -21,7 +21,14 @@ def validate_presentation(notebook):
     cells = notebook.cells
     if not cells or cells[0].cell_type != "markdown" or cells[-1].cell_type != "markdown":
         raise ValueError("First and last cells must contain canonical branding")
-    expected = header(descriptor["repository"], descriptor["path"])
+    if not descriptor.get("title") or not descriptor.get("subtitle"):
+        raise ValueError("Notebook needs the worker's published title and subtitle in vgi_example metadata")
+    expected = header(
+        descriptor["repository"],
+        descriptor["path"],
+        title=descriptor["title"],
+        subtitle=descriptor["subtitle"],
+    )
     if not cells[0].source.startswith(expected):
         raise ValueError("Header differs from the shared Query.Farm / VGI / Colab standard")
     if cells[-1].source.strip() != footer(descriptor["repository"]).strip():
