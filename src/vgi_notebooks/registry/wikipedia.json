@@ -1,0 +1,19 @@
+{
+  "repository": "Query-farm/vgi-wikipedia",
+  "revision": "d85e73b77f7a82954472cb24f409d9fa866c63c7",
+  "files": {
+    "notebook_support.py": "6c4afb7de2489a634136991ccb3a81aeacd3c0a3bba856d028edadc9a9dbd380",
+    "replay.py": "be1b20d9f82e6c30e2410112604e688c089a04692ef6032fc6618e3c0357d80b",
+    "fixtures/manifest.json": "916060159e4370d4581df447b212be80c8809667934b0b46c1955caa84941a5b",
+    "fixtures/wikidata-cities.json.gz": "87e6c8bf266f05ada32bd235942e3c9d08f758b7fbee0405990c0bc54cc84d40",
+    "discovery_query.rq": "64270fb9596520cfaea567540e385affef0a8a3712a6d524f70742a710535b93",
+    "discovery_recordings/article-search.json.gz": "3fe5ba68fbbe09f7801192d8ddc1588c319bdc3cad5f774daf13bb687fb579d1",
+    "discovery_recordings/entity-search.json.gz": "482b2d851fea3c42d51999752de320c8fa26b15acbda7a673eef0de38d18afef",
+    "discovery_recordings/identity-element.json.gz": "6483bb7747dce037ec114a20991636036ad7c30e5539713c76a6b2a87a5e9130",
+    "discovery_recordings/identity-planet.json.gz": "5811b3ade1a4258ca2e2c3a25047490bde01237112175965509314f863b2c900",
+    "discovery_recordings/manifest.json": "5586652a138474de05cea3826670de2a1bd477092c1f99c1ad29fe4d77f117e8",
+    "discovery_recordings/summary-element.json.gz": "dcb0f4225731747eac8acba7d2a907e989d98c595d030ee58ae90dae125e17a2",
+    "discovery_recordings/summary-planet.json.gz": "db578c4feb8b2e0c0d6c102b7290fadb76c5ddc1fefb252b38c20ef8bf0714da",
+    "discovery_recordings/typed-labels.json.gz": "7430d2957892dbe1919b4b4fe8e95231bbf868ef77a88f871ef9337f61707041"
+  }
+}

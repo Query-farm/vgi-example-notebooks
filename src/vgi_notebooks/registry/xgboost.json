@@ -1,0 +1,9 @@
+{
+  "key": "xgboost",
+  "repository": "Query-farm/vgi-xgboost",
+  "revision": "1a96d927261600930e8f683152c3c95b7ceb95ab",
+  "files": {
+    "xgboost_release.py": "e836d921a0aeee1ddacef0726f3cd29579420e1be15a24082f9e58a9ff12de23",
+    "xgboost_example.py": "797ca8e89b7950795e9b998d34aab06c9d4ce08e6e13d0725ae96fa20e872f03"
+  }
+}

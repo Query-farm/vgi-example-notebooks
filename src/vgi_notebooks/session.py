@@ -23,7 +23,11 @@ class NotebookSession:
         self.connection = None
         try:
             self.connection = haybarn.connect(
-                config={"secret_directory": self._secrets.name, "allow_persistent_secrets": False}
+                config={
+                    "secret_directory": self._secrets.name,
+                    "allow_persistent_secrets": False,
+                    "TimeZone": "UTC",
+                }
             )
             if self.connection.execute("SELECT * FROM duckdb_secrets()").fetchall():
                 raise RuntimeError("Notebook connection must start without SQL secrets")

@@ -12,6 +12,7 @@ from jupyter_client.kernelspec import KernelSpecManager
 def test_real_sql_session_uses_disposable_secrets_and_retains_sql_access(tmp_path):
     code = """
 from pathlib import Path
+from datetime import timedelta
 from IPython import get_ipython
 from unittest.mock import patch
 from sql.connection import ConnectionManager
@@ -21,6 +22,12 @@ with patch.object(ConnectionManager, 'load_default_connection_from_file_if_any',
     session = connect(shell.user_ns)
 con = shell.user_ns['con']
 assert con.execute('SELECT 6 * 7').fetchall() == [(42,)]
+assert con.execute("SELECT current_setting('TimeZone')").fetchone() == ('UTC',)
+for _ in range(2):
+    result = shell.run_cell_magic('sql', '', "SELECT current_setting('TimeZone') AS zone, TIMESTAMPTZ '2026-11-14 00:00:00+00' AS instant")
+    assert result.iloc[0]['zone'] == 'UTC'
+    assert result.iloc[0]['instant'].utcoffset() == timedelta(0)
+    assert result.iloc[0]['instant'].hour == 0
 assert con.execute('SELECT * FROM duckdb_secrets()').fetchall() == []
 settings = dict(con.execute("SELECT name, value FROM duckdb_settings() WHERE name IN ('secret_directory', 'allow_persistent_secrets')").fetchall())
 assert settings['allow_persistent_secrets'] == 'false'
