@@ -1,0 +1,13 @@
+{
+  "repository": "Query-farm/vgi-netflow",
+  "revision": "807271fa86a8b94adbf6d452374b3bf6e057ee59",
+  "files": {
+    "netflow_example.py": "2dfccdfced0b52532cd79f5d4ae87edbdef3d8d68a9b3145cbb889275b7c89f6",
+    "fixtures/provenance.json": "3035302a9767c4cdf107e722e6a8bf3fc0ca4ba303e89bddc9def292bc424483",
+    "fixtures/v5.dat": "2bb345da02269371b716842ce18bf0bcb39251d4682fc92e7b02a76802107b8c",
+    "fixtures/v9_1template.dat": "e4edcba4ae68bc341d3bf6e226e40ed72173dddbe5abe6c36b3af42cf53734fc",
+    "fixtures/v9_2data.dat": "a6289a131f9b611517259cec2043653c33627c24c8d8e5a749a096d69348ce3b",
+    "fixtures/ipfix.dat": "7ec4f800deddccdaad3014f8c318087fd059fc48935c78d2db369f7fa6336ce4",
+    "fixtures/sflow.dat": "8e44b9f6384b273e93375bc50ea4b0e7b8c661d87ca1f0895e344368aaf68211"
+  }
+}
