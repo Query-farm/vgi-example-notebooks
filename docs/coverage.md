@@ -187,6 +187,63 @@ line/block comments or dollar-quoted strings do not count. Function references n
 call; table references need a relation/write target context. Python helper calls,
 dynamic object names, parser hits and expected-error examples remain candidates.
 
+### COPY handlers
+
+A named COPY handler advertised in `duckdb_functions()` stays in the function
+denominator. It can be demonstrated through visible `COPY` SQL instead of a direct
+function call. Add the **actual executed runtime's** worker-filtered registration
+export to that catalog snapshot's hash-bound `evidence` list:
+
+```sql
+SELECT * FROM vgi_copy_formats()
+WHERE catalog_name = 'feed'
+ORDER BY format_name, direction;
+```
+
+Keep the native `{query, columns, rows}` shape, including `catalog_name`,
+`format_name`, `direction`, and `handler`. The validator reconciles each handler
+with the same catalog's exported named functions. Repeated option rows do not
+create surfaces or coverage. An absent or ambiguous handler, conflicting format
+registrations, invalid direction, or format scoped to another catalog invalidates
+that registration evidence. An unqualified handler shared by multiple schemas is
+ambiguous; the validator does not guess which schema the worker invokes.
+
+Keep the mapping's `reference` as the **qualified public handler**:
+
+```json
+{"cell": "rss-export", "reference": "feed.main.write_rss_copy"}
+```
+
+The mapped cell may then contain:
+
+```sql
+COPY (SELECT title, link FROM selected_items ORDER BY position)
+TO 'artifacts/selected.rss'
+(FORMAT 'feed.rss', title 'Selected items', link 'https://example.invalid/');
+```
+
+This counts only when the receipt-linked catalog's native export associates
+`feed.rss`, catalog `feed`, and direction `to` (or `both`) with that exact public
+handler. A registration in the current catalog cannot substitute for missing
+registration evidence in the released runtime actually executed. The executed
+alias must match both the handler reference and the format registration. Format
+matching is case-insensitive, following the VGI binder.
+
+Supported syntax is a top-level `COPY relation [(columns)] FROM/TO 'path' (...)`
+or `COPY (query) TO 'path' (...)`, with one explicit scalar `FORMAT` option.
+Multiple statements in a cell work. The parser distinguishes quoted identifiers
+and string literals, skips comments and dollar-quoted contents, and matches the
+direction and FORMAT option within the same COPY statement. Implicit formats,
+dynamic format/path expressions, `COPY DATABASE`, `EXPLAIN`, prepared statements,
+and FORMAT mentions inside SELECT labels, option values or comments do not earn
+COPY coverage. Ordinary visible SELECT invocations retain their existing rules.
+
+The same execution receipt, rendered results, narrative, and editorial review
+requirements apply. A successful row count alone does not establish a meaningful
+round trip or preservation claim; show and interpret the relevant read-back checks.
+
+### Editorial review
+
 Narrative references identify nonempty markdown. Results identify successfully
 executed code cells with visible output. Interpretations identify markdown or
 executed prose output. SQL and result cells may be the same cell. Editorial review

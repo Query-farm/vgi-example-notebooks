@@ -163,7 +163,7 @@ def _catalog(reference, root):
         )
         evidence = data.get("evidence")
         _require(isinstance(evidence, list) and bool(evidence), "Missing catalog collection evidence")
-        exported, export_columns = set(), set()
+        exported, export_columns, function_exports, copy_rows = set(), set(), set(), []
         for item in evidence:
             body = _artifact(item, root)
             _text(item.get("description"), "catalog evidence description")
@@ -174,6 +174,8 @@ def _catalog(reference, root):
             if not isinstance(raw, dict) or not isinstance(raw.get("columns"), list):
                 continue
             columns = raw["columns"]
+            if "format_name" in columns:
+                copy_rows.extend(_copy_export(raw))
             for kind, column in (
                 ("function", "function_name"),
                 ("table", "table_name"),
@@ -189,7 +191,10 @@ def _catalog(reference, root):
                         "Malformed catalog export row",
                     )
                     row = dict(zip(columns, values))
-                    exported.add((kind, _key({"schema": row["schema_name"], "name": row[column]})))
+                    key = _key({"schema": row["schema_name"], "name": row[column]})
+                    exported.add((kind, key))
+                    if kind == "function":
+                        function_exports.add((_text(row["database_name"], "export catalog").casefold(), key))
         if export_columns:
             _require(
                 {"function_name", "table_name"} <= export_columns,
@@ -198,6 +203,7 @@ def _catalog(reference, root):
             declared = {(kind, key) for key, obj in result["objects"].items() for kind in obj["kinds"]}
             _require(exported == declared, "Catalog snapshot omits or invents exported public objects")
         result["collection_reconciled"] = bool(export_columns)
+        result["copy_formats"] = _reconcile_copy_formats(copy_rows, function_exports)
         review = reference.get("review")
         _review(review)
         _require(review.get("catalog_sha256") == result["sha256"], "Catalog review is stale")
@@ -276,8 +282,8 @@ def _notebook(reference, root, catalogs):
     return result
 
 
-def _tokens(sql):
-    """Lex identifiers/punctuation while discarding literals and nested comments."""
+def _tokens(sql, *, copy_syntax=False):
+    """Lex SQL; COPY mode preserves literal/quoted-identifier boundaries."""
     tokens = []
     i = 0
     while i < len(sql):
@@ -308,7 +314,10 @@ def _tokens(sql):
                     i += 1
                     break
                 value, i = value + sql[i], i + 1
-            tokens.append(value.casefold() if quote == '"' else None)
+            if copy_syntax:
+                tokens.append(("identifier" if quote == '"' else "literal", value.casefold()))
+            else:
+                tokens.append(value.casefold() if quote == '"' else None)
         elif match := re.match(r"\$(?:[A-Za-z_]\w*)?\$", sql[i:]):
             delimiter = match.group()
             end = sql.find(delimiter, i + len(delimiter))
@@ -324,7 +333,161 @@ def _tokens(sql):
     return tokens
 
 
-def _invokes(cell, reference, key, kinds, aliases, default_schema):
+def _copy_export(raw):
+    """Read native registration rows, not user-authored FORMAT-to-handler claims."""
+    columns = raw["columns"]
+    required = {"catalog_name", "format_name", "direction", "handler"}
+    _require(required <= set(columns) and len(set(columns)) == len(columns), "Invalid COPY export columns")
+    query = _tokens(_text(raw.get("query"), "COPY export query"))
+    _require(
+        any(query[i : i + 4] == ["from", "vgi_copy_formats", "(", ")"] for i in range(len(query))),
+        "COPY evidence must export vgi_copy_formats() rows",
+    )
+    _require(isinstance(raw.get("rows"), list), "COPY export is missing rows")
+    rows = []
+    for values in raw["rows"]:
+        _require(isinstance(values, list) and len(values) == len(columns), "Malformed COPY export row")
+        row = dict(zip(columns, values))
+        rows.append({field: _text(row[field], f"COPY {field}").casefold() for field in required})
+    return rows
+
+
+def _reconcile_copy_formats(rows, function_exports):
+    formats = {}
+    for row in rows:
+        catalog, format_name, direction = row["catalog_name"], row["format_name"], row["direction"]
+        _require(direction in {"from", "to", "both"}, "Invalid COPY direction")
+        _require(format_name.startswith(catalog + "."), "COPY format is not scoped to its catalog")
+        # The diagnostic exposes an RPC handler name, without a separate schema
+        # column. Only an unambiguous named function in that same exported catalog
+        # can establish the public SQL identity. Never guess the default schema.
+        matches = {key for alias, key in function_exports if alias == catalog and key[1] == row["handler"]}
+        _require(len(matches) == 1, "COPY handler is absent or ambiguous in the function export")
+        handler = next(iter(matches))
+        for side in ("from", "to") if direction == "both" else (direction,):
+            identity = (catalog, format_name, side)
+            _require(formats.get(identity, handler) == handler, "Conflicting COPY format handlers")
+            formats[identity] = handler
+    return formats
+
+
+def _identifier(token):
+    return (isinstance(token, str) and bool(re.fullmatch(r"[a-z_][\w$]*", token))) or (
+        isinstance(token, tuple) and token[0] == "identifier" and bool(token[1])
+    )
+
+
+def _parenthesis_end(tokens, start):
+    """Return the position after a balanced parenthesized group, or None."""
+    if start >= len(tokens) or tokens[start] != "(":
+        return None
+    depth = 0
+    for i in range(start, len(tokens)):
+        if tokens[i] == "(":
+            depth += 1
+        elif tokens[i] == ")":
+            depth -= 1
+            if depth == 0:
+                return i + 1
+    return None
+
+
+def _copy_statement(tokens):
+    """Recognize explicit COPY relation/query FROM/TO 'path' (FORMAT 'name').
+
+    This deliberately supports a narrow, reviewable SQL shape rather than guessing
+    dynamic formats, implicit extension inference, DATABASE copies or PREPARE/EXECUTE.
+    """
+    if not tokens or tokens[0] != "copy":
+        return None
+    i, query = 1, len(tokens) > 1 and tokens[1] == "("
+    if query:
+        i = _parenthesis_end(tokens, i)
+        if i is None or tokens[2] not in {"select", "with", "values", "table"}:
+            return None
+    else:
+        if i >= len(tokens) or not _identifier(tokens[i]):
+            return None
+        i += 1
+        while i + 1 < len(tokens) and tokens[i] == "." and _identifier(tokens[i + 1]):
+            i += 2
+        if i < len(tokens) and tokens[i] == "(":
+            end = _parenthesis_end(tokens, i)
+            if end is None:
+                return None
+            columns = tokens[i + 1 : end - 1]
+            if (
+                not columns
+                or any(
+                    not _identifier(token) if pos % 2 == 0 else token != ","
+                    for pos, token in enumerate(columns)
+                )
+                or len(columns) % 2 == 0
+            ):
+                return None
+            i = end
+    if i + 2 >= len(tokens) or tokens[i] not in {"from", "to"} or (query and tokens[i] != "to"):
+        return None
+    direction, path = tokens[i], tokens[i + 1]
+    if not isinstance(path, tuple) or path[0] != "literal" or not path[1]:
+        return None
+    start = i + 2
+    end = _parenthesis_end(tokens, start)
+    if end != len(tokens):
+        return None
+    options, option, depth = [], [], 0
+    for token in tokens[start + 1 : end - 1]:
+        if token == "," and depth == 0:
+            options.append(option)
+            option = []
+        else:
+            option.append(token)
+            if token == "(":
+                depth += 1
+            elif token == ")":
+                depth -= 1
+    options.append(option)
+    if any(not opt or not _identifier(opt[0]) for opt in options):
+        return None
+    formats = [opt for opt in options if opt[0] in {"format", ("identifier", "format")}]
+    if len(formats) != 1 or len(formats[0]) != 2:
+        return None
+    value = formats[0][1]
+    if isinstance(value, tuple) and value[0] in {"literal", "identifier"} and value[1]:
+        return direction, value[1]
+    if _identifier(value):
+        return direction, value
+    return None
+
+
+def _copies(source, alias, key, formats):
+    if not formats:
+        return False
+    tokens, statement, depth = _tokens(source, copy_syntax=True), [], 0
+    statements = []
+    for token in tokens:
+        if token == ";" and depth == 0:
+            statements.append(statement)
+            statement = []
+        else:
+            statement.append(token)
+            if token == "(":
+                depth += 1
+            elif token == ")":
+                depth -= 1
+                if depth < 0:
+                    return False
+    if depth:
+        return False
+    statements.append(statement)
+    for statement in statements:
+        invocation = _copy_statement(statement)
+        if invocation and formats.get((alias, invocation[1], invocation[0])) == key:
+            return True
+    return False
+
+
+def _invokes(cell, reference, key, kinds, aliases, default_schema, copy_formats=None):
     source = _source(cell).strip()
     metadata = cell.get("metadata", {})
     if metadata.get("jupyter", {}).get("source_hidden") or set(metadata.get("tags", [])) & {
@@ -364,7 +527,7 @@ def _invokes(cell, reference, key, kinds, aliases, default_schema):
             and before in {"from", "join", "update", "into", "table", "copy"}
         ):
             return True
-    return False
+    return "function" in kinds and _copies(source, names[0], key, copy_formats or {})
 
 
 def _has_output(cell, text_only=False):
@@ -411,7 +574,9 @@ def _example(example, notebooks, catalogs):
             if not book["verified"]:
                 raise ValueError("No verified notebook execution: " + "; ".join(book["issues"]))
             _require(
-                _invokes(cell, reference, key, kinds, aliases, runtime["default_schema"]),
+                _invokes(
+                    cell, reference, key, kinds, aliases, runtime["default_schema"], runtime["copy_formats"]
+                ),
                 "Mapped cell does not visibly invoke the qualified public object",
             )
         _require(key in runtime["objects"], "Object is absent from the executed runtime catalog")

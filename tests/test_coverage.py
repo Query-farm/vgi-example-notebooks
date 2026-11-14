@@ -570,3 +570,241 @@ def test_views_cannot_replace_required_physical_table_export(tmp_path):
     report = evidence.result()
     assert report["catalogs"]["current"]["denominator"] is None
     assert "both function and table evidence" in str(report)
+
+
+def _copy_evidence(evidence, label, rows=None, query=None):
+    """Supplement the named denominator with a native runtime COPY export."""
+    rows = rows if rows is not None else [["worker", "worker.feed", "to", "f0", "title"]]
+
+    def update(snapshot):
+        item = evidence.write(
+            f"coverage/{label}-copy-formats.json",
+            {
+                "query": query or "SELECT * FROM vgi_copy_formats() WHERE catalog_name='worker'",
+                "columns": ["catalog_name", "format_name", "direction", "handler", "option_name"],
+                "rows": rows,
+            },
+        )
+        item["description"] = "Complete actual runtime COPY registrations including handlers and directions"
+        snapshot["evidence"].append(item)
+
+    evidence.mutate_catalog(label, update)
+
+
+@pytest.mark.parametrize(
+    ("source", "direction"),
+    [
+        ("COPY local_rows TO 'out.rss' (FORMAT 'worker.feed');", "to"),
+        ("COPY local_rows FROM 'in.rss' (FORMAT 'worker.feed');", "from"),
+        ("COPY (SELECT * EXCLUDE(rank) FROM rows ORDER BY rank) TO 'out' (FORMAT 'worker.feed');", "to"),
+        ("COPY rows (title, id) FROM 'in' (FORMAT 'worker.feed', max_items 10);", "from"),
+        ('COPY "local"."rows" TO \'out\' (FORMAT "WORKER.FEED");', "to"),
+        ("COPY rows TO 'out' (title 'FORMAT worker.bad', FORMAT 'worker.feed');", "to"),
+        ("SELECT 'COPY is a label'; COPY rows TO 'out' (FORMAT 'worker.feed'); SELECT 1;", "to"),
+        ("COPY (WITH x AS (SELECT 1 AS a) SELECT * FROM x) TO 'out' (FORMAT 'worker.feed')", "to"),
+        ("/* outer /* nested */ comment */ COPY rows TO 'out' (FORMAT /* comment */ 'worker.feed');", "both"),
+        ("COPY rows FROM 'in' (FORMAT 'worker.feed');", "both"),
+    ],
+)
+def test_copy_uses_runtime_format_handler_and_direction(tmp_path, source, direction):
+    e = Evidence(tmp_path)
+    for label in ("released", "current"):
+        _copy_evidence(
+            e,
+            label,
+            [
+                ["worker", "worker.feed", direction, "f0", "title"],
+                ["worker", "worker.feed", direction, "f0", "description"],
+            ],
+        )
+    e.add_book(["f0"], sources=["%%sql\n" + source])
+    result = e.result()
+    assert result["meets_target"]
+    assert result["catalogs"]["released"]["exact_runtime_count"] == 1
+    assert result["catalogs"]["current"]["denominator"] == 1  # Options/formats do not add surfaces.
+    assert result["catalogs"]["current"]["exact_runtime_count"] == 0
+
+
+@pytest.mark.parametrize(
+    "source",
+    [
+        "SELECT 'COPY rows TO file (FORMAT worker.feed)';",
+        "SELECT $$ COPY rows TO 'out' (FORMAT 'worker.feed'); $$;",
+        "-- COPY rows TO 'out' (FORMAT 'worker.feed');\nSELECT 1;",
+        "/* outer /* inner */ COPY rows TO 'out' (FORMAT 'worker.feed'); */ SELECT 1;",
+        "SELECT 'worker.feed' AS format, 'f0' AS handler, 'to' AS direction;",
+        "SELECT vgi_copy_formats();",
+        "COPY rows FROM 'in' (FORMAT 'worker.feed');",  # Registered TO only.
+        "COPY rows TO 'out' (FORMAT 'other.feed');",
+        "COPY rows TO 'out' (FORMAT 'worker.other');",
+        "COPY rows TO 'out' (FORMAT 'worker.feed' || '');",
+        "COPY rows TO 'out' (FORMAT getvariable('format'));",
+        "COPY rows TO 'out' (FORMAT 'worker.feed', FORMAT 'worker.feed');",
+        "COPY rows TO 'out' (title 'worker.feed');",
+        "COPY rows TO 'out.worker.feed';",  # No implicit extension inference.
+        "COPY rows TO 'out' (title ('FORMAT', 'worker.feed'));",
+        "COPY (SELECT 'FORMAT worker.feed' AS label) TO 'out' (FORMAT 'csv');",
+        "COPY rows TO 'out' (FORMAT 'csv', title 'FORMAT worker.feed');",
+        "SELECT copy FROM rows WHERE format='worker.feed';",
+        'SELECT "COPY" FROM rows;',
+        "\"copy\" rows TO 'out' (FORMAT 'worker.feed');",
+        "SELECT (COPY rows TO 'out' (FORMAT 'worker.feed'));",
+        "EXPLAIN COPY rows TO 'out' (FORMAT 'worker.feed');",
+        "PREPARE p AS COPY rows TO 'out' (FORMAT 'worker.feed'); EXECUTE p;",
+        "COPY (SELECT 1) FROM 'out' (FORMAT 'worker.feed');",
+        "COPY rows TO 'out' (FORMAT 'worker.feed') extra;",
+        "COPY rows TO 'out' (FORMAT 'worker.feed';",
+    ],
+)
+def test_copy_mentions_wrong_direction_or_unsupported_syntax_do_not_cover(tmp_path, source):
+    e = Evidence(tmp_path)
+    for label in ("released", "current"):
+        _copy_evidence(e, label)
+    e.add_book(["f0"], sources=["%%sql\n" + source])
+    result = e.result()
+    assert result["catalogs"]["released"]["denominator"] == 1
+    assert not result["meets_target"]
+    assert result["examples"][0]["status"] == "candidate"
+
+
+def test_copy_wrong_handler_cannot_borrow_another_handlers_format(tmp_path):
+    e = Evidence(tmp_path, 2)
+    for label in ("released", "current"):
+        _copy_evidence(e, label)
+    e.add_book(["f1"], sources=["%%sql\nCOPY rows TO 'out' (FORMAT 'worker.feed');"])
+    assert e.result()["catalogs"]["current"]["verified_count"] == 0
+
+
+def test_copy_requires_export_from_actual_executed_catalog(tmp_path):
+    e = Evidence(tmp_path)
+    _copy_evidence(e, "current")  # Not the receipt's released runtime.
+    e.add_book(["f0"], sources=["%%sql\nCOPY rows TO 'out' (FORMAT 'worker.feed');"])
+    assert e.result()["catalogs"]["current"]["verified_count"] == 0
+    assert e.result()["catalogs"]["released"]["collection_reconciled"]
+
+
+def test_empty_copy_export_keeps_denominator_and_select_behavior(tmp_path):
+    e = Evidence(tmp_path)
+    for label in ("released", "current"):
+        _copy_evidence(e, label, [])
+    e.add_book(["f0"])
+    assert e.result()["meets_target"]
+
+
+@pytest.mark.parametrize(
+    "failure", ["missing-handler", "direction", "catalog", "scope", "conflict", "short-row"]
+)
+def test_invalid_copy_registration_cannot_supply_runtime_evidence(tmp_path, failure):
+    e = Evidence(tmp_path, 2)
+    rows = [["worker", "worker.feed", "to", "f0", "title"]]
+    if failure == "missing-handler":
+        rows[0][3] = "not_exported"
+    elif failure == "direction":
+        rows[0][2] = "write"
+    elif failure == "catalog":
+        rows[0][:2] = ["other", "other.feed"]
+    elif failure == "scope":
+        rows[0][1] = "other.feed"
+    elif failure == "conflict":
+        rows.append(["worker", "worker.feed", "both", "f1", "title"])
+    else:
+        rows[0].pop()
+    _copy_evidence(e, "released", rows)
+    e.add_book(["f0"], sources=["%%sql\nCOPY rows TO 'out' (FORMAT 'worker.feed');"])
+    result = e.result()
+    assert not result["notebooks"]["01_example.ipynb"]["verified"]
+    assert result["catalogs"]["released"]["denominator"] is None
+
+
+@pytest.mark.parametrize("query", ["SELECT 'vgi_copy_formats()'", "-- FROM vgi_copy_formats()\nSELECT 1"])
+def test_copy_export_needs_native_collection_query(tmp_path, query):
+    e = Evidence(tmp_path)
+    _copy_evidence(e, "released", query=query)
+    assert e.result()["catalogs"]["released"]["denominator"] is None
+
+
+def test_copy_export_hash_is_verified(tmp_path):
+    e = Evidence(tmp_path)
+    _copy_evidence(e, "released")
+    (tmp_path / "coverage/released-copy-formats.json").write_text("{}")
+    assert e.result()["catalogs"]["released"]["denominator"] is None
+
+
+def test_copy_does_not_guess_between_same_named_schema_handlers(tmp_path):
+    e = Evidence(tmp_path)
+    e.catalog("released", 1, "release-1", [{"schema": "other", "name": "f0", "kind": "function"}])
+    _copy_evidence(e, "released")
+    e.add_book(["f0"], sources=["%%sql\nCOPY rows TO 'out' (FORMAT 'worker.feed');"])
+    result = e.result()
+    assert "ambiguous" in result["catalogs"]["released"]["issues"][0]
+    assert not result["notebooks"]["01_example.ipynb"]["verified"]
+
+
+def test_feed_four_handlers_with_native_copy_shapes(tmp_path):
+    e = Evidence(tmp_path)
+    names = ["read_feed_copy", "write_rss_copy", "write_atom_copy", "write_jsonfeed_copy"]
+    rows = [
+        ["worker", "worker.auto", "from", names[0], "max_items"],
+        ["worker", "worker.rss", "to", names[1], "title"],
+        ["worker", "worker.atom", "to", names[2], "title"],
+        ["worker", "worker.jsonfeed", "to", names[3], "title"],
+    ]
+    for label in ("released", "current"):
+        e.catalog(label, 0, label, [{"schema": "main", "name": name, "kind": "function"} for name in names])
+        _copy_evidence(e, label, rows)
+    sources = [
+        "%%sql\nCREATE TABLE rows AS SELECT * FROM local_items;\n"
+        "COPY rows FROM 'fixtures/feed.rss' (FORMAT 'worker.auto');\nSELECT * FROM rows;"
+    ] + [
+        f"%%sql\nCOPY (SELECT * EXCLUDE(rank) FROM rows ORDER BY rank) TO 'out.{format_name}' "
+        f"(FORMAT 'worker.{format_name}', title 'Authored items', link 'https://example.invalid/');"
+        for format_name in ("rss", "atom", "jsonfeed")
+    ]
+    e.add_book(names, sources=sources)
+    result = e.result()
+    assert result["meets_target"]
+    assert result["catalogs"]["current"]["verified_count"] == 4
+
+
+def test_copy_reference_alias_must_match_registered_format(tmp_path):
+    e = Evidence(tmp_path)
+    for label in ("released", "current"):
+        _copy_evidence(e, label)
+    e.add_book(["f0"], sources=["%%sql\nCOPY rows TO 'out' (FORMAT 'worker.feed');"])
+    e.manifest["examples"][0]["sql"][0]["reference"] = "other.main.f0"
+    e.mutate_receipt(lambda receipt: receipt.update(catalog_aliases=["worker", "other"]))
+    assert e.result()["catalogs"]["current"]["verified_count"] == 0
+
+
+def test_copy_keeps_full_denominator_reconciliation(tmp_path):
+    e = Evidence(tmp_path, 2)
+    _copy_evidence(e, "released")
+    e.mutate_catalog("released", lambda snapshot: snapshot["objects"].pop())
+    result = e.result()
+    assert result["catalogs"]["released"]["denominator"] is None
+    assert "omits or invents" in result["catalogs"]["released"]["issues"][0]
+
+
+def test_copy_wrong_direction_cannot_borrow_format_from_another_statement(tmp_path):
+    e = Evidence(tmp_path)
+    for label in ("released", "current"):
+        _copy_evidence(e, label)
+    e.add_book(
+        ["f0"],
+        sources=["%%sql\nCOPY rows FROM 'in' (FORMAT 'worker.feed'); COPY rows TO 'out' (FORMAT 'csv');"],
+    )
+    assert e.result()["catalogs"]["current"]["verified_count"] == 0
+
+
+@pytest.mark.parametrize("hidden", ["source_hidden", "no-execute"])
+def test_copy_must_remain_visible_and_executed(tmp_path, hidden):
+    e = Evidence(tmp_path)
+    for label in ("released", "current"):
+        _copy_evidence(e, label)
+    book = e.add_book(["f0"], sources=["%%sql\nCOPY rows TO 'out' (FORMAT 'worker.feed');"])
+    if hidden == "source_hidden":
+        book["cells"][1]["metadata"] = {"jupyter": {"source_hidden": True}}
+    else:
+        book["cells"][1]["source"] = "%%sql --no-execute\nCOPY rows TO 'out' (FORMAT 'worker.feed');"
+    e.save_book("01_example.ipynb", book)
+    assert e.result()["catalogs"]["current"]["verified_count"] == 0
