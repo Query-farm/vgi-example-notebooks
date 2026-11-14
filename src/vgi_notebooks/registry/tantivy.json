@@ -1,0 +1,9 @@
+{
+  "repository": "Query-farm/vgi-tantivy",
+  "revision": "c36912d2b048b9f7d2d1f47fd593a2a19e63632b",
+  "files": {
+    "tantivy_example.py": "edca8069d935e2d17da3178dc1c651822d3a752419d1b07167490747ab062883",
+    "fixtures/corpus.json": "a6543e651276154af847fabe13c87c99e83fdc65e21121c6169b02f8bba59ea8",
+    "fixtures/manifest.json": "98fb2a7e65aa0477b196bec1d4e66f8f8284023205f97200896e836a327be133"
+  }
+}
