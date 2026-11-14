@@ -1,0 +1,18 @@
+{
+  "repository": "Query-farm/vgi-x509",
+  "revision": "6f0e8893f5c461f112d2076450869c1bff776475",
+  "files": {
+    "fixtures/boundary.der": "c18d184251c345d4273f00757db5e6f47b51b281e3d07adfee821e2044b467a5",
+    "fixtures/boundary.pem": "02173fe934f22adf83c94cb019338d92cc46584d6be1bbaa6764ca6aa2f36582",
+    "fixtures/expired.der": "b56139e790b09954c0245d908f6e86e53306f9d333c7ee70a7c5b0bfc8a766f7",
+    "fixtures/expired.pem": "b92c345d66f730d24448d42304a8d0a3a7658e57fae212d365f2bffceb62f1a0",
+    "fixtures/future.der": "c72bee97970df98eb4468e09c5aa261036c409e0941455f3e53e7008bb1e13b2",
+    "fixtures/future.pem": "029dff37c467f33d2d93a06286a6a8b3710ea58257de0f281cba87e3ffe50ec4",
+    "fixtures/later.der": "d75098752d9cdac48335f8e2dba972a2b715f223ecfb0ffdd3d88fda6aecc138",
+    "fixtures/later.pem": "8ba20fa99e91205136ac3ee08a09b66fb19a8a6ee3e7978d21cdcc8925cbdb7d",
+    "fixtures/long.der": "2d8eb0bfdfc282c197fb893dc7f624c47a93f72df600e64df2bcf3dd2b2371f7",
+    "fixtures/long.pem": "3b54f7250b2bde85d1ab785f66b47c90ecd13526a05c503301ff4cc0b0580dee",
+    "fixtures/shared-soon.der": "f04bc8196741c4b94a0a1e08395724f4659eebb5ffc2660ac480b155f557daa8",
+    "fixtures/shared-soon.pem": "262eda221cf463d1ddebc073e8a53c2080cc3335408ef7734ea6309b9d0b7100"
+  }
+}
