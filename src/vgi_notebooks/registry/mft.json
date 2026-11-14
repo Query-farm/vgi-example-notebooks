@@ -1,0 +1,10 @@
+{
+  "repository": "Query-farm/vgi-mft",
+  "revision": "948bc4726d64c1b4aab21916d144cc34e26de53e",
+  "files": {
+    "mft_example.py": "8df0dd7d1b15067d945455059050e84e76db77cb14795ac6930269bc29f42b80",
+    "fixtures/sample.mft": "6f9485acb24435636ad8207552b56f24bd9a9ca2f3dcfe34f1e1e590dc0df4f1",
+    "fixtures/provenance.json": "a693f6bf19127b421503fd0e18f341d385ae5e7807c21ba91cae0893780fef62",
+    "fixtures/LICENSE-worker-MIT.txt": "ba79bf2f5744098357fd6f51ecc78ea5f556c25c435697e36cc2204bafb17dc8"
+  }
+}
