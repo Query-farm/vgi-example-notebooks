@@ -1,0 +1,7 @@
+{
+  "repository": "Query-farm/vgi-barcode",
+  "revision": "b8efc99616100a86d3fe37bf219adbdf44d6109a",
+  "files": {
+    "barcode_example.py": "42c7680723c810b332bc754db845b9237367d60138daf04af9d603d2f1313e16"
+  }
+}

@@ -165,6 +165,10 @@ the hashes. Output hashing uses
 as UTF-8. `notebook_candidate_evidence(path)` collects these fingerprints but labels
 its result `candidate` and does not provide a success status for any cell.
 
+Read the final saved notebook with `json.loads(path.read_text())` when hashing its
+outputs. `nbformat.read` normalizes multiline arrays into strings, which changes
+the saved JSON representation and produces a different output hash.
+
 ## Mapping and editorial checks
 
 SQL references must visibly occur in a mapped `%sql` or `%%sql` cell as an invocation,
