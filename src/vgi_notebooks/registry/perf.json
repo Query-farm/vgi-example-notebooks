@@ -1,0 +1,10 @@
+{
+  "repository": "Query-farm/vgi-perf",
+  "revision": "d9b690a626aa476bdfa899d91220323fbcdc55ce",
+  "files": {
+    "perf_example.py": "8107e9feb9002ca91f0ce5e34937647fb3bf34998df9618abc604f39119992ea",
+    "fixtures/callchain.data": "d0994c41e083085adce1af865b7c90f388b2307a0b3277805acc7219a1f88b83",
+    "fixtures/provenance.json": "5aacdf9449b230b8587418a4ea44ca5fdc6ef96da76b6ba68ba6fd79b6f2a7cf",
+    "fixtures/LICENSE-worker-MIT.txt": "ba79bf2f5744098357fd6f51ecc78ea5f556c25c435697e36cc2204bafb17dc8"
+  }
+}

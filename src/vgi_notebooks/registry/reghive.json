@@ -1,0 +1,13 @@
+{
+  "repository": "Query-farm/vgi-reghive",
+  "revision": "8661c4aa392dd8016a366ce8ed6bf387866f1f70",
+  "files": {
+    "reghive_example.py": "e09bea092beecce5ac1cbcdc5c2ad005d38e224eaa6db31ca6064666257b1066",
+    "fixtures/empty.bin": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "fixtures/garbage.bin": "84d9091a4044909d565ce5ca5678d0484045906dd44d39dca787009283ff93dc",
+    "fixtures/manifest.json": "f4e8f811d1302f9fcef5268638f41731932339e0b785e0c1f797ff6681ba695d",
+    "fixtures/software.hve": "1902eec7fbff4eb460685319a4bd5b285c6adc4167b2937b16e1c31beccf657c",
+    "fixtures/system_clean.hve": "b60874d350b9322dd14531d18c0577e00a2548e6993532ff87ec267c379bb638",
+    "fixtures/system_dirty.hve": "bbff469d21396e3949374ae9c30eede27a280e82b7be65112e0e4133ee985312"
+  }
+}
