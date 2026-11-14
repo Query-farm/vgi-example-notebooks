@@ -2,6 +2,7 @@
 
 import re
 import warnings
+from unittest.mock import patch
 
 
 _KNOWN_ESCAPE = re.compile(
@@ -25,7 +26,32 @@ def load_sql(ipython):
         with warnings.catch_warnings(record=True) as captured:
             # Compiler warnings carry the source filename, not a reliable module name.
             warnings.simplefilter("always", SyntaxWarning)
-            ipython.run_line_magic("load_ext", "sql")
+            from sql import display
+
+            message, message_html = display.message, display.message_html
+
+            def without_config_tip(text, *args, **kwargs):
+                if str(text).startswith(
+                    ("Tip: You may define configurations in ", "Did not find user configurations in ")
+                ):
+                    return
+                return message(text, *args, **kwargs)
+
+            def without_config_link(text, *args, **kwargs):
+                if str(text) == (
+                    "Please review our <a href='https://jupysql.ploomber.io/en/latest/api/"
+                    "configuration.html#loading-from-a-file'>configuration guideline</a>."
+                ):
+                    return
+                return message_html(text, *args, **kwargs)
+
+            # These optional configuration hints include local filesystem paths.
+            # Keep all other messages, warnings and exceptions visible.
+            with (
+                patch.object(display, "message", without_config_tip),
+                patch.object(display, "message_html", without_config_link),
+            ):
+                ipython.run_line_magic("load_ext", "sql")
     finally:
         for warning in captured:
             if not _known_parser_warning(warning):
