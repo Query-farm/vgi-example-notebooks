@@ -13,6 +13,8 @@ def test_real_sql_session_uses_disposable_secrets_and_retains_sql_access(tmp_pat
     code = """
 from pathlib import Path
 from datetime import timedelta
+import os
+import sysconfig
 from IPython import get_ipython
 from unittest.mock import patch
 from sql.connection import ConnectionManager
@@ -21,6 +23,8 @@ shell = get_ipython()
 with patch.object(ConnectionManager, 'load_default_connection_from_file_if_any', side_effect=AssertionError('Must not open a saved default connection')):
     session = connect(shell.user_ns)
 con = shell.user_ns['con']
+assert os.environ['PATH'].split(os.pathsep)[0] == sysconfig.get_path('scripts')
+assert os.environ['PATH'].split(os.pathsep).count(sysconfig.get_path('scripts')) == 1
 assert con.execute('SELECT 6 * 7').fetchall() == [(42,)]
 assert con.execute("SELECT current_setting('TimeZone')").fetchone() == ('UTC',)
 for _ in range(2):

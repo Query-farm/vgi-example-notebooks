@@ -2,6 +2,7 @@
 
 from tempfile import TemporaryDirectory
 import os
+import sysconfig
 
 from .compatibility import check_runtime
 
@@ -11,6 +12,11 @@ class NotebookSession:
 
     def __init__(self, namespace):
         check_runtime()
+        # A kernelspec can name a virtualenv Python without activating its bin
+        # directory. Make this kernel's installed console tools visible to VGI.
+        scripts = sysconfig.get_path("scripts")
+        entries = os.environ.get("PATH", "").split(os.pathsep)
+        os.environ["PATH"] = os.pathsep.join([scripts, *(p for p in entries if p != scripts)])
         import haybarn
         from IPython import get_ipython
         from .runtime import load_sql

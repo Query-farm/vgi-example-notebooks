@@ -122,7 +122,9 @@ evidence using [coverage.json and its artifacts](coverage.md).
 
 The shared `connect(globals())` helper creates a disposable empty SQL-secret
 directory and registers the explicit Haybarn connection with `TimeZone=UTC` at
-creation. JupySQL creates cursors, so a `SET TimeZone` inside one SQL cell alone
+creation. It puts the active kernel's scripts directory on PATH before starting
+Haybarn, so installed launchers work from kernelspecs whose virtualenv was not
+shell-activated. JupySQL creates cursors, so a `SET TimeZone` inside one SQL cell alone
 does not establish the timezone for later cells. Convert explicitly when showing
 a different zone. SQL extension loading
 does not open a saved JupySQL default connection. Keep worker ATTACH calls visible;
