@@ -1,0 +1,8 @@
+{
+  "repository": "Query-farm/vgi-sourcemap",
+  "revision": "b445a322ffdb9b31b42443493c9b94d19f61ebf9",
+  "files": {
+    "sourcemap_example.py": "7be5a209b2c99ef7c21a6b9d5dd6ff209b219b5215a3706abcaa3e82303beea6",
+    "fixtures/app.min.js.map": "bdfd44973d8328a9c01b91208b810ea44532ebf779d1cb0e34afcc0f514fe2a3"
+  }
+}
