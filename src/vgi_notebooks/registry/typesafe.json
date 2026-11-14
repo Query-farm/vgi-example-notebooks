@@ -1,0 +1,9 @@
+{
+  "repository": "Query-farm/vgi-typesafe",
+  "revision": "f307ada9abb3b42d32a850d7a4524f5ca048ba94",
+  "files": {
+    "fixtures/LICENSE": "f8adc20c9df93e99cf89944de830cce377e86c7aafa74365d38107778540fd63",
+    "fixtures/manifest.json": "a28ae7691b859933447028f234a1a04cd8fb1521b78c4d92232f10cedea049dd",
+    "fixtures/typesafe_mock.py": "9417cbb8861eccb9295769eb5022744eaaf539a27c22c3cd378dd42aa0d3ba36"
+  }
+}

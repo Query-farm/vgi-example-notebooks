@@ -1,0 +1,17 @@
+{
+  "repository": "Query-farm/vgi-x12",
+  "revision": "7180264d230c932b2faccd6f67b88e37659fd097",
+  "files": {
+    "x12_example.py": "2fa813b7def9ccbe2aa9b52dfc5876f18edfcf84922a0126049491f7bd7b5714",
+    "fixtures/provenance.json": "627919e1f8ed1f92d4a898b92b49fa1df9c4a233923bd060fddee233b2d9f6f8",
+    "fixtures/LICENSE-worker-MIT.txt": "ba79bf2f5744098357fd6f51ecc78ea5f556c25c435697e36cc2204bafb17dc8",
+    "fixtures/bad-count.edi": "a19cfc014a1f85b5d107ba245bc0d7f70842ac161fc14c1912517bd132bbc49c",
+    "fixtures/bad-quantity.edi": "ba324aa018123e7108bb54db9d9fe1a1c45574699f0b8d3c02e0ed701303b7f8",
+    "fixtures/complete.edi": "b883bdfabbd8984710d99f60c5567ed8841c97ff04b4dca343e3164fa2d2cb13",
+    "fixtures/edifact/escaped.edi": "8df32fbe9cdc3cc663f0152b3eef186d9fccdad7399c17e189d2925a9ba6d01e",
+    "fixtures/edifact/unescaped.edi": "effa0699effe72d2ed447b5c1622db0f39991deef99aec03e231deeb406bc917",
+    "fixtures/incomplete.edi": "981b272c5310152476cbcdcac3e27b2daa06d65342a5d057bd5aa68b70682380",
+    "fixtures/no-se.edi": "466f3f27f0a552ba661c35f3706f74065534f2a21d313a4b613dba645218e918",
+    "fixtures/no-transactions.edi": "2cbb2e743923657d585136d238854a26428692ccf30c3068539f58e4995c0443"
+  }
+}
