@@ -1,0 +1,14 @@
+{
+  "repository": "Query-farm/vgi-pdf",
+  "revision": "81b424790808028d67de14da45c57b5ab7e7f622",
+  "files": {
+    "pdf_example.py": "e8d0373ab2668e0d2bdaff4c84e7d74841c31f751480ecb2a618c337b2998312",
+    "fixtures/invoice_variants.pdf": "084af99bccaff6e8822d6767d974e24738c91b71390f597e15a7fe76204bc7f2",
+    "fixtures/provenance.json": "785ace806102641affd33310758a54fc1ed119b5fbc531220661c47b23b5a81d",
+    "fixtures/form.pdf": "4355becce82b52c538c45057b3df60a840cf88a3f7fb4a3a3152163e73ad0f5e",
+    "fixtures/meta.pdf": "dcd7a6ce34322a1130c6f98940d3c260c56c11bbaa86dde72e3b38656987dd33",
+    "fixtures/garbage.pdf": "501a0cdb77cdcfccf514ac37e235e037b397763c45a2a322cc9fc72503a27c57",
+    "fixtures/encrypted.pdf": "eafce3c5315b118d66477c2fad7675114ea3be940f7e83c2e831f9d1434ddc33",
+    "fixtures/intake-provenance.json": "40c21453a5aa05502f0f3f8bf8e96aaec7385757edad2da160880b8fd2c93c85"
+  }
+}

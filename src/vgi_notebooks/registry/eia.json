@@ -1,0 +1,22 @@
+{
+  "repository": "Query-farm/vgi-eia",
+  "revision": "42da23f8670be01908bf8df94152349295944ff4",
+  "files": {
+    "notebook_support.py": "ca0a9ddaeb46a6272b7cb320d0975ee85bacd9c61928652fce36cb8ee34ab81c",
+    "recorded_api.py": "c67393d1c99b6ac24791e1d28acde7ef5f08ee732c2e42d7e01025a0856a4ba7",
+    "recordings/manifest.json": "df77d74a40540b855c037d5db92162c9b0900c20fe638a5349ec854e93776961",
+    "recordings/metadata.json": "5cd0d9b6b8416a4c381fc1ebfdc3d9bb0c1e5ea68915dd74ae7800d143a7e5ad",
+    "recordings/price-0.json": "f98e96a36eea922a08d3f8d39dc0ffaab3a7a6d13933bf239832d2b4fa611940",
+    "recordings/price-6.json": "9e50de39278af74cb2cea31dcbe6e2d25fcb6ba9297d68d461188bd9dacacc6f",
+    "recordings/routes-electricity.json": "6fd11ce753d5cb498222d78de3d4ad706ce0beb98f0382615ed72ab675d4f123",
+    "recordings/sales-0.json": "04602fe812833baebf1f22eb081c50018fdbba2bd5af542e835ca482c18edf58",
+    "recordings/sales-6.json": "d10f5ad7e1a541b42e345b40363c6faa77dfc17a1624549229ad54e943fd6fba",
+    "marker_fixtures/explicit-0.json": "2d06ddce26b6f809b53cd16d1019c984a742d16d2ba5c556f9d6064db654336b",
+    "marker_fixtures/explicit-3.json": "2fd662135099d63ee7c03db6b85fa2941563a8af044401e09bd4d8a5d71f567d",
+    "marker_fixtures/legacy-0.json": "2d06ddce26b6f809b53cd16d1019c984a742d16d2ba5c556f9d6064db654336b",
+    "marker_fixtures/legacy-3.json": "2fd662135099d63ee7c03db6b85fa2941563a8af044401e09bd4d8a5d71f567d",
+    "marker_fixtures/manifest.json": "50db45d261db78184579fa1f8d7be17601f7fa39940fc24c901cb95014c24b9b",
+    "marker_fixtures/metadata.json": "cfcecf5d8c0f43dd9443530ec3a3a496bca6e05907bccb0041b87b76ff6394d4",
+    "marker_fixtures/sectors.json": "0da63b8e796adb831dc5de05cfd2aa0a7eddfd14699e42f4d7a056f89aec212c"
+  }
+}
