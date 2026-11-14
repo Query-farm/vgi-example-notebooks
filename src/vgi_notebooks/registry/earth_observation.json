@@ -1,0 +1,8 @@
+{
+  "repository": "Query-farm/vgi-earth-observation",
+  "revision": "c832b7c1f4712e0adf0e0bd3f6e67f33b9979ba0",
+  "files": {
+    "earth_example.py": "5d1484e50e69ecb86eaf28be4198a315fae32d146908c88c8bc1839fc0f389cd",
+    "earth_fixture.py": "a1be82681c57e93bd4835879d0acf9f89960ccfe3c096b2d1e31b1cf52c583b9"
+  }
+}

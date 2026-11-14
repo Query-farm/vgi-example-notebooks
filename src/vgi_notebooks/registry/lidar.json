@@ -1,0 +1,7 @@
+{
+  "repository": "Query-farm/vgi-lidar",
+  "revision": "f921b1b1a66e2587bc30f2d79e637c4ff0b41513",
+  "files": {
+    "lidar_fixture.py": "7c6a0c35fd853e5d788e761a841c35f6943785069b7d76dd5904996c32b9dbc4"
+  }
+}

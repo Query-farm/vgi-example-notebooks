@@ -1,0 +1,10 @@
+{
+  "repository": "Query-farm/vgi-fred",
+  "revision": "8d209cf45fc436cd55361cc72165d5e4296304aa",
+  "files": {
+    "fixture_api.py": "bd5801e358d58b11a876756e9cd0c1d956e1d24761b990aaeda14bb20e4aa5e8",
+    "discovery_fixture.py": "777a5606ffc73e42b34cdc9a33c9ff760b82bc1bcf0eccd846fe33cc09d9f5c4",
+    "fixtures/gdp.json": "649f8308ac62be853650a48b583bc12e6b640774c33d1b12c43c5c9f828a47e6",
+    "fixtures/discovery.json": "760064dad2c9e80e876c53da843357fda9274986f90f961d0fec737f48b409d9"
+  }
+}
