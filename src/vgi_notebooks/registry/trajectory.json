@@ -1,0 +1,9 @@
+{
+  "repository": "Query-farm/vgi-trajectory",
+  "revision": "2042475eb3748177ef782125806452d4da66767d",
+  "files": {
+    "trajectory_example.py": "34821d89c590872793334a3d270e8e562fcba78f4f31e971208ee36f70ee9a8c",
+    "roster_fixture.py": "a46eacf67fe8f5dc1624ea52a7c46681b46ce7b2a0ea6277031bb73f954b2722",
+    "fixtures/fences.json": "348ee9f7a48e1b748f93930c0d9532e3b0b08e100506d50631fd56cae48fa3bd"
+  }
+}
