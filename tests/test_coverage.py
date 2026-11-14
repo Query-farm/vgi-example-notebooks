@@ -483,3 +483,90 @@ def test_malformed_top_level_evidence_fails_closed(tmp_path, manifest):
     result = validate_coverage(manifest, tmp_path)
     assert not result["meets_target"] and result["status"] == "unknown"
     assert result["catalogs"]["current"]["denominator"] is None
+
+
+def _view_evidence(evidence, label, name, *, physical_tables=False):
+    """Add a native duckdb_views export; do not disguise it as duckdb_tables."""
+
+    def update(snapshot):
+        if not physical_tables:
+            tables = next(item for item in snapshot["evidence"] if item["path"].endswith("-table.json"))
+            raw = json.loads((evidence.root / tables["path"]).read_text())
+            raw["rows"] = []
+            tables.update(evidence.write(tables["path"], raw))
+        view = evidence.write(
+            f"coverage/{label}-views.json",
+            {
+                "query": "SELECT * FROM duckdb_views() WHERE database_name='worker'",
+                "columns": ["database_name", "schema_name", "view_name"],
+                "rows": [["worker", "main", name]],
+            },
+        )
+        view["description"] = "Complete public native view export"
+        snapshot["evidence"].append(view)
+
+    evidence.mutate_catalog(label, update)
+
+
+def test_native_view_union_with_empty_physical_tables(tmp_path):
+    evidence = Evidence(tmp_path)
+    for label, revision in [("released", "release-1"), ("current", "main-2")]:
+        evidence.catalog(
+            label,
+            1,
+            revision,
+            extra=[{"schema": "main", "name": "supported_models", "kind": "table", "signatures": ["VIEW"]}],
+        )
+        _view_evidence(evidence, label, "supported_models")
+    evidence.add_book(
+        ["f0", "supported_models"],
+        sources=[
+            "%%sql\nSELECT worker.main.f0(1);",
+            "%%sql\nSELECT * FROM worker.main.supported_models;",
+        ],
+    )
+    report = evidence.result()
+    assert report["meets_target"]
+    assert report["catalogs"]["current"]["denominator"] == 2
+    assert report["catalogs"]["current"]["verified_count"] == 2
+    assert report["catalogs"]["current"]["collection_reconciled"]
+
+
+def test_view_table_and_function_alias_share_one_logical_surface(tmp_path):
+    evidence = Evidence(tmp_path)
+    for label, revision in [("released", "release-1"), ("current", "main-2")]:
+        evidence.catalog(
+            label,
+            1,
+            revision,
+            extra=[{"schema": "main", "name": "f0", "kind": "table", "signatures": ["VIEW", "TABLE"]}],
+        )
+        _view_evidence(evidence, label, "f0", physical_tables=True)
+    evidence.add_book(["f0"], sources=["%%sql\nSELECT * FROM worker.main.f0;"])
+    report = evidence.result()
+    assert report["meets_target"]
+    assert report["catalogs"]["current"]["denominator"] == 1
+    assert report["catalogs"]["current"]["verified_count"] == 1
+
+
+def test_unrecorded_public_view_invalidates_catalog(tmp_path):
+    evidence = Evidence(tmp_path)
+    _view_evidence(evidence, "current", "omitted_view")
+    report = evidence.result()
+    assert report["catalogs"]["current"]["denominator"] is None
+    assert not report["meets_target"]
+    assert "omits or invents" in str(report)
+
+
+def test_views_cannot_replace_required_physical_table_export(tmp_path):
+    evidence = Evidence(tmp_path)
+    _view_evidence(evidence, "current", "f0")
+    evidence.mutate_catalog(
+        "current",
+        lambda snapshot: snapshot.update(
+            evidence=[item for item in snapshot["evidence"] if not item["path"].endswith("-table.json")]
+        ),
+    )
+    report = evidence.result()
+    assert report["catalogs"]["current"]["denominator"] is None
+    assert "both function and table evidence" in str(report)

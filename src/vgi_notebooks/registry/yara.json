@@ -1,0 +1,7 @@
+{
+  "repository": "Query-farm/vgi-yara",
+  "revision": "c7c6f70f3a3e16be0968b4250ad3c62da0fc0a3c",
+  "files": {
+    "yara_example.py": "0d75ebdc6dc200df748d82cf4bf2181b75c302249f283590c80e3a66826d9204"
+  }
+}

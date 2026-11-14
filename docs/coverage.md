@@ -109,17 +109,26 @@ or a passing percentage.
 ```
 
 Schema may be a string or an array of path components. `kind` is `function` or
-`table`. Repeated overload/alias rows are merged case-insensitively using DuckDB's
+`table`; normalize a public view to `table` and retain its `VIEW` access form in
+`signatures`. Views are public relation surfaces and must not be excluded merely
+because `duckdb_tables()` omits them. Repeated overload/alias rows are merged case-insensitively using DuckDB's
 identifier semantics. `authentication` accepts `none`, `optional`, `required`, or
 `unknown`; `access` accepts `read`, `write`, `read_write`, or `unknown`. The latter
 two fields may be omitted when not advertised and are then recorded as unknown;
 the object still counts. There are no exclusion switches.
 
 Collector JSON exports shaped as `{query, columns, rows}` are reconciled against the
-snapshot whenever their columns include `database_name`, `schema_name`, and either
-`function_name` or `table_name`. Both exports are required, including empty tables.
-An omitted or invented exported object invalidates the denominator. Argument exports
-are supplementary evidence, not a replacement for full function/table exports.
+snapshot whenever their columns include `database_name`, `schema_name`, and
+`function_name`, `table_name`, or `view_name`. Collect complete worker-filtered
+`duckdb_functions()`, `duckdb_tables()` and `duckdb_views()` exports, including empty
+results. The validator reconciles their union; a view and table with the same
+`(schema, name)` share one relation surface, and a same-named function alias also
+shares that logical denominator entry. An omitted or invented exported object
+invalidates the denominator. Function and physical-table exports remain required;
+a view export cannot substitute for either. Older artifacts without a view export
+remain accepted, with their explicit completeness review responsible for confirming
+there are no unrecorded views. Argument exports are supplementary evidence, not a
+replacement for full function/table/view exports.
 
 Other evidence, such as a source registration listing for unreleased current-main
 APIs, must still be present and hash-bound. Its completeness requires the explicit

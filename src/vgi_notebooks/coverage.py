@@ -163,7 +163,7 @@ def _catalog(reference, root):
         )
         evidence = data.get("evidence")
         _require(isinstance(evidence, list) and bool(evidence), "Missing catalog collection evidence")
-        exported, export_kinds = set(), set()
+        exported, export_columns = set(), set()
         for item in evidence:
             body = _artifact(item, root)
             _text(item.get("description"), "catalog evidence description")
@@ -174,10 +174,14 @@ def _catalog(reference, root):
             if not isinstance(raw, dict) or not isinstance(raw.get("columns"), list):
                 continue
             columns = raw["columns"]
-            for kind, column in (("function", "function_name"), ("table", "table_name")):
+            for kind, column in (
+                ("function", "function_name"),
+                ("table", "table_name"),
+                ("table", "view_name"),
+            ):
                 if "database_name" not in columns or "schema_name" not in columns or column not in columns:
                     continue
-                export_kinds.add(kind)
+                export_columns.add(column)
                 _require(isinstance(raw.get("rows"), list), "Catalog export is missing rows")
                 for values in raw["rows"]:
                     _require(
@@ -186,14 +190,14 @@ def _catalog(reference, root):
                     )
                     row = dict(zip(columns, values))
                     exported.add((kind, _key({"schema": row["schema_name"], "name": row[column]})))
-        if export_kinds:
+        if export_columns:
             _require(
-                export_kinds == {"function", "table"},
+                {"function_name", "table_name"} <= export_columns,
                 "Catalog export needs both function and table evidence, even when empty",
             )
             declared = {(kind, key) for key, obj in result["objects"].items() for kind in obj["kinds"]}
             _require(exported == declared, "Catalog snapshot omits or invents exported public objects")
-        result["collection_reconciled"] = bool(export_kinds)
+        result["collection_reconciled"] = bool(export_columns)
         review = reference.get("review")
         _review(review)
         _require(review.get("catalog_sha256") == result["sha256"], "Catalog review is stale")
