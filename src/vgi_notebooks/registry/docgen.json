@@ -1,0 +1,9 @@
+{
+  "repository": "Query-farm/vgi-docgen",
+  "revision": "f4bdde50f2ba378ad305bb297f2e698ad975bc06",
+  "files": {
+    "docgen_example.py": "af57f4c70c0760183e258ec35ebaa5ad628bd64bb25cb51b6af9a5fa5e855d12",
+    "templates/order_summary.docx": "16597dbc3e734d9a376b2febb21438c3adc85ae8d3544788c0a25243dad4f24b",
+    "templates/README.md": "293b7df8ff6e804b913c485cc17a14ddf3994b8b89dfb7695375abc94de8c90c"
+  }
+}
