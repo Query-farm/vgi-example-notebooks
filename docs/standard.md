@@ -32,8 +32,12 @@ Keep setup and VGI connection separate so the connection stays understandable.
 
 ## Output
 
-Use SVG MIME output for charts. Export SVG review artifacts and high-resolution PNG
-fallbacks where a viewer requires them. SVG alone does not fix poor chart design:
+Use SVG MIME output for charts. The publication runner also saves content-addressed
+SVG files under notebooks/charts and adds an image reference for GitHub, whose native
+SVG output renderer currently adds byte-string artifacts. Colab and Jupyter reruns
+produce native SVG. Experiment copies retain native SVG without unpublished image
+links. Commit generated chart files with the default notebook and retain older hashes
+so prior notebook revisions still resolve. Export PNG review artifacts when needed. SVG alone does not fix poor chart design:
 use readable text, light grids, meaningful units, direct labels, a consistent
 palette and scales suited to the narrative. Avoid squeezing a local effect into
 a full-range chart dominated by distant values; use clearly labeled comparison panels.

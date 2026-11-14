@@ -19,6 +19,7 @@ from jupyter_client.kernelspec import KernelSpecManager
 from nbclient import NotebookClient
 
 from .validation import validate_presentation
+from .publication import publish_svg_outputs
 
 
 def main() -> None:
@@ -125,6 +126,8 @@ def main() -> None:
                         raise ValueError(
                             "Unexpected warning, error, or local path in saved output; inspect validation/failed-output-review.ipynb"
                         )
+            if args.output_dir is None:
+                publish_svg_outputs(notebook, directory)
             destination = args.output_dir / path.name if args.output_dir else path
             if args.output_dir:
                 for companion in directory.iterdir():
