@@ -1,0 +1,12 @@
+{
+  "repository": "Query-farm/vgi-pprof",
+  "revision": "3b34789d268d6be8cff11a1e3fb8ea5b223dc3f0",
+  "files": {
+    "pprof_example.py": "cdc1b41ec68212964304b1661e3553ef9fac90e24937f8408ce3744d922ccde2",
+    "fixtures/baseline.pb.gz": "e510dc787ce1d72933d81a275209f0425250a0b0af7f233cbad9dab24b6e9eac",
+    "fixtures/candidate.pb.gz": "87a4f04a68a06c96b35c7f79374f908b6750579654a38a69b2a4c4783d694bad",
+    "fixtures/broken.pb.gz": "ed513183de4a1a8b5d0a5e107bc1ab2ddd83eac2720c62e120ffd1f255304543",
+    "fixtures/provenance.json": "5744d0fbf8ba1d8c525106445e03cf9432083cdf0f6eea302dae6047a0a095a1",
+    "fixtures/LICENSE-worker-MIT.txt": "ba79bf2f5744098357fd6f51ecc78ea5f556c25c435697e36cc2204bafb17dc8"
+  }
+}

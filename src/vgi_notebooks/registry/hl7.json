@@ -1,0 +1,8 @@
+{
+  "repository": "Query-farm/vgi-hl7",
+  "revision": "53265ad261b889899bb978eb383f68ebac146cb7",
+  "files": {
+    "hl7_release.py": "f1f96fe4eb1dc8bae6c5b98582a189b07a51721c0a6025f5d79d3281f90ce49e",
+    "hl7_release.py.lock": "891364a097f1d0acecaf929ed6bf808445cd0bd13a588f4d2f8cad11dbe2acac"
+  }
+}

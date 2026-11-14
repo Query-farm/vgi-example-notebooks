@@ -1,0 +1,12 @@
+{
+  "repository": "Query-farm/vgi-poi",
+  "revision": "04ab9177b2158f613c2537e2990702438e57ea0f",
+  "files": {
+    "poi_example.py": "f8df6d5f43feff3a1b5f641110fbc70f89955a77c7c4032b822a0f2273c08842",
+    "poi_release.py": "7531d860b4d5a48f3f2f6ed80daf4c58cbd43b6f5a0cab1ca3194306ab31196f",
+    "poi_release.py.lock": "891364a097f1d0acecaf929ed6bf808445cd0bd13a588f4d2f8cad11dbe2acac",
+    "assets/provenance.json": "f6d6e8c1ca7b2f2c42bfb797296f10637f522062aa8efcf5e51dc4d6666510d7",
+    "assets/synthetic-orders.xlsx": "ceb0a800bab13d43ac3a97806b61136683361bd1cf3aac6827a6f26e856cfdd4",
+    "assets/not-a-workbook.txt": "1e2f3b33b864aa9d02e4c4a7e88f6fd3619c793cbdda1df8258634448838c7df"
+  }
+}
