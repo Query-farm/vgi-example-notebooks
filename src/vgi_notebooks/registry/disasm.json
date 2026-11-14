@@ -1,0 +1,9 @@
+{
+  "repository": "Query-farm/vgi-disasm",
+  "revision": "dcfdbbdfe9500efaff50594ed3f2f4ea2af189c5",
+  "files": {
+    "disasm_example.py": "578299b3418d9310b0ad2cb407852393404f16f494f57b862456909d6133f19d",
+    "assets/hello-macho-arm64.bin": "da58bb1fa4b6b7d85b829a1b650024c103fd0182a98eef19b9e0b78b43c06239",
+    "assets/README.md": "8bbf9b4d3166d2c1ace79194372369e62a19b760e46ad6a39d1c296a09c57435"
+  }
+}

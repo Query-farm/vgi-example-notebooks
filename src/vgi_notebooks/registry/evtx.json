@@ -1,0 +1,8 @@
+{
+  "repository": "Query-farm/vgi-evtx",
+  "revision": "6b3aad7d9c4426ff1afaf16d4a43809343908e9d",
+  "files": {
+    "fixtures/sample-security.evtx": "50c87926d2dfed9776906ffbcc77e61577940910a71fb1c1871860a4e2213456",
+    "fixtures/README.md": "bd5a23a25908c30beb31d419f860fcd42fa9a13013a13da37fba276c1a876331"
+  }
+}

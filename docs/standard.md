@@ -1,4 +1,4 @@
-# GitHub and Colab notebook standard — Kalshi pilot
+# GitHub and Colab notebook standard
 
 ## First and final cells
 
@@ -81,6 +81,22 @@ real recordings and synthetic data truthfully, isolate SQL credentials before
 connection creation and retain provenance. Test defaults, experiments, empty/missing
 cases where relevant, fresh companion-only execution and supported live reads.
 A working Colab link is distinct from a hosted-Colab execution test; report both honestly.
+
+For notebook-only changes, reuse successful source CI for the unchanged worker
+revision. Do not rebuild the worker, rerun its entire unit/transport test suite,
+or dispatch source/container CI merely to publish examples. Run additional source
+checks when worker code changes, a concrete runtime discrepancy needs investigation,
+or an applicable repository rule requires them. Keep existing source failures
+separate from notebook regressions.
+
+Execute every saved default and its meaningful parameter experiment. Exercise a
+fresh notebook-only bootstrap with libraries already loaded for each distinct
+launcher and companion path; notebooks sharing that path do not each need an
+identical dependency-installation test. Review all changed figures and verify the
+published GitHub SVGs. Repeat checks only after relevant changes or unresolved
+failures. Batch stable companion registrations into shared releases when practical;
+registry-only additions need companion hash verification, bootstrap tests and a
+package build, with the shared CI providing its full checks.
 
 ## Fleet surface coverage
 
