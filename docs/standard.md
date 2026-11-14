@@ -30,6 +30,14 @@ fixtures and analytical helpers remain with their worker. A Colab bootstrap must
 install dependencies and retrieve hash-verified companions without manual cloning.
 Keep setup and VGI connection separate so the connection stays understandable.
 
+Inside Colab install only the base shared package. The `[runner]` extra is for local
+publication environments; never replace Colab's kernel or Jupyter client to execute
+a notebook already running there. Accept compatible preinstalled plotting and data
+libraries, while local `uv.lock` files preserve exact publication versions. Call
+`check_runtime()` before loading helpers to detect stale imported libraries or a
+Colab environment damaged by earlier installs. Test with libraries already imported,
+not only in a bare virtual environment.
+
 ## Output
 
 Use SVG MIME output for charts. The publication runner also saves content-addressed

@@ -16,7 +16,7 @@ See [the pilot standard](docs/standard.md) and [Kalshi's narrative plan](docs/ka
 
 ## Run an example
 
-Install this package at a published tag through uv or pip, then run `vgi-notebooks`
+Install this package with the `[runner]` extra at a published tag through uv or pip, then run `vgi-notebooks`
 from the worker's notebooks directory. Override parameters with a separate output:
 
 ```sh
@@ -33,3 +33,16 @@ exact public sources and hashes. No account credentials or Drive mount are neede
 Hosted Colab opens GitHub notebooks but does not bring along their filesystem; this
 bootstrap supplies that missing step. A link and clean-runtime tests do not imply
 that a hosted Colab session was manually exercised.
+
+Colab installs the base package, without `[runner]`. Compatible versions of pandas,
+Matplotlib and IPython already supplied by Colab are retained. Kernel-management
+packages belong only to the local runner extra. A runtime check detects libraries
+replaced while the session was running before importing the plotting helpers.
+If an older example already installed conflicting Colab dependencies, save your work
+and use **Runtime → Disconnect and delete runtime**, reconnect, and run the updated
+notebook. A session restart alone does not undo installed packages.
+
+For development, use `uv sync --locked --extra runner` and `uv run --extra runner pytest`.
+CI also installs into an environment with the reported Colab dependency versions,
+preloads plotting and kernel libraries, and verifies unchanged versions, `pip check`
+and SVG rendering without a restart.

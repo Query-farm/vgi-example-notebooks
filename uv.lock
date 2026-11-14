@@ -2292,20 +2292,26 @@ wheels = [
 
 [[package]]
 name = "vgi-example-notebooks"
-version = "0.1.3"
+version = "0.2.0"
 source = { editable = "." }
 dependencies = [
     { name = "haybarn" },
-    { name = "ipykernel" },
+    { name = "ipython" },
     { name = "jupysql" },
     { name = "matplotlib" },
     { name = "matplotlib-inline" },
-    { name = "nbclient" },
-    { name = "nbformat" },
+    { name = "packaging" },
     { name = "pandas" },
     { name = "seaborn" },
     { name = "toml" },
     { name = "uv" },
+]
+
+[package.optional-dependencies]
+runner = [
+    { name = "ipykernel" },
+    { name = "nbclient" },
+    { name = "nbformat" },
 ]
 
 [package.dev-dependencies]
@@ -2317,17 +2323,20 @@ dev = [
 [package.metadata]
 requires-dist = [
     { name = "haybarn", specifier = "==2.0.0rc11" },
-    { name = "ipykernel", specifier = "==7.4.0" },
+    { name = "ipykernel", marker = "extra == 'runner'", specifier = "==7.4.0" },
+    { name = "ipython", specifier = ">=7.23.1,<10" },
     { name = "jupysql", specifier = "==0.11.1" },
-    { name = "matplotlib", specifier = "==3.11.2" },
-    { name = "matplotlib-inline", specifier = "==0.2.2" },
-    { name = "nbclient", specifier = "==0.11.0" },
-    { name = "nbformat", specifier = "==5.11.1" },
-    { name = "pandas", specifier = "==2.3.3" },
+    { name = "matplotlib", specifier = ">=3.8,<3.12" },
+    { name = "matplotlib-inline", specifier = ">=0.1.7,<0.3" },
+    { name = "nbclient", marker = "extra == 'runner'", specifier = "==0.11.0" },
+    { name = "nbformat", marker = "extra == 'runner'", specifier = "==5.11.1" },
+    { name = "packaging", specifier = ">=20" },
+    { name = "pandas", specifier = ">=2.2.3,<3" },
     { name = "seaborn", specifier = "==0.13.2" },
     { name = "toml", specifier = "==0.10.2" },
     { name = "uv", specifier = "==0.13.8" },
 ]
+provides-extras = ["runner"]
 
 [package.metadata.requires-dev]
 dev = [

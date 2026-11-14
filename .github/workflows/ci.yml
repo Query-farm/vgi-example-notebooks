@@ -13,8 +13,25 @@ jobs:
       - uses: astral-sh/setup-uv@v6
         with:
           python-version: ${{ matrix.python }}
-      - run: uv sync --locked
-      - run: uv run --locked ruff check .
-      - run: uv run --locked ruff format --check .
-      - run: uv run --locked pytest -q
+      - run: uv sync --locked --extra runner
+      - run: uv run --locked --extra runner ruff check .
+      - run: uv run --locked --extra runner ruff format --check .
+      - run: uv run --locked --extra runner pytest -q
       - run: uv build
+  colab-compatibility:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          python-version: '3.13'
+      - run: uv build
+      - name: Create an environment with the reported Colab dependencies
+        run: |
+          uv venv /tmp/colab-compat
+          uv pip install --python /tmp/colab-compat/bin/python \
+            ipykernel==6.17.1 pandas==2.2.3 jupyter-client==7.4.9 \
+            matplotlib==3.10.0 matplotlib-inline==0.1.7 ipython==8.32.0 \
+            notebook==6.5.7 jupyter-kernel-gateway==2.5.2 pip
+      - name: Keep preloaded libraries compatible and render SVG
+        run: /tmp/colab-compat/bin/python tests/colab_probe.py dist/*.whl
