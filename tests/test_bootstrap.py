@@ -91,3 +91,16 @@ def test_rejects_corrupted_cache_from_both_working_directories(tmp_path, monkeyp
         bootstrap.prepare("example")
     assert (directory / "helper.py").read_bytes() == b"corrupted cache"
     assert Path.cwd() == before
+
+
+def test_every_shipped_registry_can_be_prepared_locally(tmp_path, monkeypatch):
+    """Published registry keys must be accepted by the actual notebook entry point."""
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.setattr(bootstrap.sys, "path", bootstrap.sys.path.copy())
+    monkeypatch.setattr(bootstrap, "_verified_file", lambda *args: True)
+    monkeypatch.setattr(bootstrap, "urlopen", lambda *args, **kwargs: pytest.fail("no download"))
+    manifests = list(bootstrap.files("vgi_notebooks").joinpath("registry").iterdir())
+    assert manifests
+    for manifest in manifests:
+        if manifest.name.endswith(".json"):
+            assert bootstrap.prepare(manifest.name.removesuffix(".json")) == tmp_path

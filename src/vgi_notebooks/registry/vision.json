@@ -1,0 +1,14 @@
+{
+  "repository": "Query-farm/vgi-vision",
+  "revision": "2f08765ce6c564691c5bf3f03f31e2cd37370ab1",
+  "files": {
+    "vision_example.py": "572ed6c8f4d162ce698efc30c136a4df4e0e6ade2f7edbc4c15e17a848f18c2e",
+    "model_assets.py": "db6a60ca2c8e0296cfda5867591f0773643e49eb6823bfa160e43533292cb17a",
+    "model-manifest.json": "5b784758f40109881ca993cbc22ba7483b349fa97d67b42d3a69f97837bc2107",
+    "fixtures/chelsea.png": "596aa1e7cb875eb79f437e310381d26b338a81c2da23439704a73c4651e8c4bb",
+    "fixtures/checkerboard.png": "621152fe166187a55fc1fe30b15e347e073c8f2952452c2d2f633214388c1c4d",
+    "fixtures/invalid.bin": "5f6cbccc4ae119cf0bb3529c4194b4bc5472ef96fa1bb5b14a330519685a9487",
+    "fixtures/provenance.json": "d2bcce6f2fcc63a92b63e1a5cfe20fc83e71bdaefaecf56416e50e43f4f27904",
+    "fixtures/LICENSE.md": "b50882dfdd69f538e5189a419bcf6571eeb86c5b348f87d9476345f219bc1521"
+  }
+}
