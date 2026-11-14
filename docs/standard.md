@@ -23,6 +23,11 @@ appropriate for optional prose, not a workaround for hiding executable cell inpu
 Pin the worker to a published release, prefer a release binary when available,
 and otherwise use a short uvx Git-tag command. The release/package owns dependency
 compatibility. A long transitive --with list does not belong in teaching SQL.
+The PII v0.4.0 release needs one explicitly documented exception: its English
+spaCy model is absent from runtime dependencies. The presentation validator accepts
+only the exact released worker plus official en_core_web_sm 3.8.0 wheel command;
+extra transitive overrides remain rejected. The model installs inside the isolated
+worker environment, preserving the notebook kernel libraries.
 
 Use a released shared package rather than a submodule. Keep the full standard and
 runner here; keep only a notebook-specific README/index in each worker repo. Worker

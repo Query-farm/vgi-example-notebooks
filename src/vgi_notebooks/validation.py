@@ -3,6 +3,15 @@
 import re
 from .branding import header, footer
 
+# PII v0.4.0 omits its required English model from runtime dependencies.
+# Permit only this released worker + model combination, in the worker process;
+# this is not permission for transitive dependency override stacks.
+_PII_MODEL_LAUNCHER = (
+    "uvx --python 3.13 --from git+https://github.com/Query-farm/vgi-pii@v0.4.0 "
+    "--with https://github.com/explosion/spacy-models/releases/download/"
+    "en_core_web_sm-3.8.0/en_core_web_sm-3.8.0-py3-none-any.whl vgi-pii-worker"
+).split()
+
 
 def validate_presentation(notebook):
     """Require canonical branding and a readable release-based SQL connection."""
@@ -33,5 +42,8 @@ def validate_presentation(notebook):
         if not locations:
             raise ValueError("SQL connection must use a literal LOCATION")
         for location in locations:
-            if re.search(r"@[a-f0-9]{40}(?:\s|$)", location) or "--with " in location:
+            source_revision = re.search(r"@[a-f0-9]{40}(?:\s|$)", location)
+            extra_dependency = re.search(r"--with(?:\s|=)", location)
+            required_pii_model = location.split() == _PII_MODEL_LAUNCHER
+            if source_revision or (extra_dependency and not required_pii_model):
                 raise ValueError("Use a released worker and keep dependency overrides out of ATTACH")

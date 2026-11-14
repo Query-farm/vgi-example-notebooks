@@ -1,0 +1,7 @@
+{
+  "repository": "Query-farm/vgi-tiktoken",
+  "revision": "b7e06acae5be7511a03d4b6a14d29d1a518bc348",
+  "files": {
+    "tiktoken_example.py": "d8d521b5200e78a82ee0637e69b7786d7fbf341cd73587adbf373f7970cdedef"
+  }
+}
