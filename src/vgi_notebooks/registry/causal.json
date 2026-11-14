@@ -1,0 +1,7 @@
+{
+  "repository": "Query-farm/vgi-causal",
+  "revision": "b7286d03ef0d1ed7ff5ea1328d83b2668f26de5c",
+  "files": {
+    "causal_example.py": "c5dc1830050398bf9f7d829ecdf2f222b5ce83e5ab1fa322e0e5e42c34bc748f"
+  }
+}

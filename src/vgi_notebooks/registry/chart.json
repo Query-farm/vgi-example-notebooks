@@ -1,0 +1,9 @@
+{
+  "repository": "Query-farm/vgi-chart",
+  "revision": "65eff42adc8a393d5521c34918c67f34151bd000",
+  "files": {
+    "chart_example.py": "9ee79b9f6b81f42fca6ef6a0d13d47702487db89ff9fa61a4d5b9e2d5f16b9f1",
+    "chart_release.py": "9cb6d1ea15e130cb819a9a1152f51fec5e938cd08d4e27a09ee607627d0d1340",
+    "chart_release.py.lock": "891364a097f1d0acecaf929ed6bf808445cd0bd13a588f4d2f8cad11dbe2acac"
+  }
+}
