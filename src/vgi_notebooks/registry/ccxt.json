@@ -1,0 +1,8 @@
+{
+  "repository": "Query-farm/vgi-ccxt",
+  "revision": "7d120d7ab850cdc60cdf28df8ae9e6b8a03f568a",
+  "path": "notebooks",
+  "files": {
+    "fixtures.json": "6d4af927d0c7c98dcc51943d0ee54890e64269b2f5c5161e942911fdb387f4ed"
+  }
+}

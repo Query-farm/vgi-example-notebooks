@@ -1,0 +1,8 @@
+{
+  "repository": "Query-farm/vgi-quant",
+  "revision": "2e6cc772538c160249991a9cb674c4f3ff942545",
+  "files": {
+    "quant_example.py": "f709f334391301cc0d9d0af2d0f175eceeff54067d1192bb4646831ac3314e14",
+    "fixtures/provenance.json": "483df4aca01d17f1043270f4d9ee056c4a5a1c0818ab6918c6085f9e1e17fc7d"
+  }
+}

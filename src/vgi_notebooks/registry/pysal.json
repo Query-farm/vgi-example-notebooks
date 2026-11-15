@@ -1,0 +1,9 @@
+{
+  "repository": "Query-farm/vgi-pysal",
+  "revision": "127af2ac9894c2fd5556ec7db9dfb63f69b62761",
+  "path": "notebooks",
+  "files": {
+    "fixtures/sensors.csv": "f8cb63c891401227f202832794be5b2ad1e8eb49c1126d36058f6dec6abb2b13",
+    "fixtures/provenance.json": "7533fb2a321a2bb563ca39408f250dec1dd5015f3da1a9bbc60ab1f590aabfab"
+  }
+}
