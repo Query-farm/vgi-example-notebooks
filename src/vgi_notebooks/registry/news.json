@@ -1,0 +1,9 @@
+{
+  "repository": "Query-farm/vgi-news",
+  "revision": "535a2d9400eaf65cfe5d02101432e62674f9a27c",
+  "files": {
+    "news_example.py": "2581ef230febd37545002fbcefceb254fbc4ed20e6031065b52547b55d070a3e",
+    "recordings/provenance.json": "a08d5e1f4d1681e62809e27051cfb4338a7d3dcf3602c0d06c127c73e2c35dc0",
+    "recordings/gdelt-climate.json": "b1c13ec0d9b406a8c8af75112b9481ebaf6798636b5ff53ae77fbcd889dfc14f"
+  }
+}

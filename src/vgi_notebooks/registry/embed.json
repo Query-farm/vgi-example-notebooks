@@ -1,0 +1,9 @@
+{
+  "repository": "Query-farm/vgi-embed",
+  "revision": "ad919e2d63bbb80a101f28abeb50351e756b1434",
+  "files": {
+    "embed_example.py": "93728a0aefc30865add59cdd7ca378d2b7de2f8968eeb443f6f326c30d845936",
+    "model_assets.py": "1be8cbd4a619f5813f15836ca0c4fc03d3f1aece3a5233d00a4101f5246235ea",
+    "model-manifest.json": "2eb19034c35ef06152d8f7f4e97096fa3a22be463ff6ea27e1dea3bb1332ef89"
+  }
+}
