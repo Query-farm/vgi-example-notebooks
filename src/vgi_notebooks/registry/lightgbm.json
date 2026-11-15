@@ -1,0 +1,8 @@
+{
+  "repository": "Query-farm/vgi-lightgbm",
+  "revision": "f021dbedfd80e855e3b50ad9691588e67e36e777",
+  "files": {
+    "lightgbm_example.py": "a425066e3990fdd559543c33a0e69ed6f5186ff5cd67fcbaf6d3b1c926f9cef3",
+    "lightgbm_release.py": "eb249184455cb2d573a94ec33b8224de06d2bc78da921454ab91426e224fd0b3"
+  }
+}
