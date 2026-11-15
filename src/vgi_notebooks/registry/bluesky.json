@@ -1,0 +1,11 @@
+{
+  "repository": "Query-farm/vgi-bluesky",
+  "revision": "e1c4f24da4b011d15929039b136310f1c2ae1060",
+  "path": "notebooks",
+  "files": {
+    "recorded_api.py": "0ad2664eca03efcc959f404fc893cd0ea99953cdfe51099b07a1c58afb537e84",
+    "data/official-feed.json": "9c67bc977a9cb8faf04ff425a18e85df6139b620076360eb7ed7cf8fba8bd690",
+    "synthetic_api.py": "50714e24d52b9ee3e95d94c27b8c707b026ced0b1336af9aa3b4095a4decb9aa",
+    "data/engagement-fixture.json": "1c9cffd2260282371b68caf39f06e9b03a542f6a8b8d0d2372076bd1360af416"
+  }
+}
