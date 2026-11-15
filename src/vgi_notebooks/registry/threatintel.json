@@ -1,0 +1,10 @@
+{
+  "key": "threatintel",
+  "repository": "Query-farm/vgi-threatintel",
+  "revision": "8f498799fd9c6493cd35de20d9c895630f678034",
+  "files": {
+    "threatintel_example.py": "41e81bb88d03d2a136d622b6ef4dd41f76620d40d61086bd5b1489da87e01358",
+    "local_feed.py": "d780df70dcf2690871eedc846f3e7a17ababebfe96770eb2d5268352abe13bf0",
+    "fixtures/feed.json": "e2ba7492da463d7e51f8c5f756286faa74a077e57e5e412829eebd2169f8c428"
+  }
+}
