@@ -1,0 +1,8 @@
+{
+  "repository": "Query-farm/vgi-software-packages",
+  "revision": "61b55db6cc34c06d66d00527beef99895b0c7f05",
+  "files": {
+    "public_sources.py": "3f3398e4c63c9716e77d5f4930966b366950dcf4d9b60e8c80a9038f8674c135",
+    "fixtures/provenance.json": "83c3c9c1fd6bfe14b992ccb57330f8b21b008f91a5d39bd984924d1b45ad657c"
+  }
+}
