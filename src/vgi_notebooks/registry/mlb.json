@@ -1,0 +1,19 @@
+{
+  "repository": "Query-farm/vgi-mlb",
+  "revision": "0709be4e46e47b327dfd9ab845a18b64a96abe8d",
+  "files": {
+    "mlb_examples.py": "661f02e6578e891bf8db29548cdc72c9f5eb18c704c40a608dddbece03a8d57a",
+    "recordings/duran-career-page-0.json": "53405182753b090b21c034208443384bb0be469d007c6b94b0f0d1baec60b668",
+    "recordings/duran-gameLog-page-0.json": "5b1ea81576dd9d75404f6f737b82668771634341fc638189b8fe51213cfc76f2",
+    "recordings/duran-yearByYear-page-0.json": "251f45762c7d603ddd1c326f8a412477504c7a5cce0bc48fae0f2340a3887e39",
+    "recordings/hitting-season-page-0.json": "f21f27a42f2c206d24fc8c7759c5b65f45c5dfff4287ad5fe8914195ff23d177",
+    "recordings/hitting-seasonAdvanced-page-0.json": "02562b6d0b1ad8ed101c9d7e221c39b1f79586d27e863672b405df4c06c91ed3",
+    "recordings/naylor-career-page-0.json": "0fea0bf442bcf05e809bdab19d26bf4b473870bd36d820a15cdb10febfda92e7",
+    "recordings/naylor-gameLog-page-0.json": "b69beae54192bfc625cda18ac592ed15b85993f8201594d8b9672ccfbfd339c4",
+    "recordings/naylor-yearByYear-page-0.json": "065eda5a5cacbc9af6f3ad03ddfa49394f933e05f37d5e60c02eba64ffde0354",
+    "recordings/pitching-seasonAdvanced-page-0.json": "898b9133ccc5a81e6619fa9cefa4f92886b2530231d5843a8105680c3dfa1b57",
+    "recordings/provenance.json": "821052958ade47bc8c976bccfe13ffb1b13fae70351bebaf7fd5f21436a95139",
+    "fixtures/manifest.json": "ab773b3945002a4b3b30674cb711280e34fe67d793a1770edc5890d3b2da08b0",
+    "fixtures/pitching-page-0.json": "d27f820c7446a4f95877bf8b593def131981796684650528494a957311e335a0"
+  }
+}
