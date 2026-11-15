@@ -1,0 +1,10 @@
+{
+  "repository": "Query-farm/vgi-scholar",
+  "revision": "a79122f054e44571d7a21d37474f514cd4c2b78d",
+  "files": {
+    "notebook_support.py": "607fa2430da1098cd01501464343bd10443c5dc984e29c25b026831acc5633be",
+    "recordings/openalex.json": "55b64f82cd283d131f7e5f25e2fcaadd34c6477181d662173155ef4f6e8fa64f",
+    "recordings/crossref.json": "8ab39ed6c62c1196557291b935c78f72b2ff36587f3fe8ca19f919ecebdef3d3",
+    "recordings/provenance.json": "5353407ca28b4c59e4823608ca37223d5f277494d1aa24f4c5776c6eee97278f"
+  }
+}
