@@ -1,0 +1,17 @@
+{
+  "repository": "Query-farm/vgi-cve",
+  "revision": "dc5ec274228c4f9774416448db0bee28101028b9",
+  "files": {
+    "nvd_replay.py": "9b1da6f30711e9d8418331466605acc72951ea5e9220b588c9fa44d20d3beedc",
+    "fixtures/manifest.json": "ece0e8e92be66952ac6c304834edcb958cc9ccb9ae321a151ed161e1656310c8",
+    "fixtures/CVE-2021-44228.json": "56ca236d6aeb10ccdbb1a9e90fc4c6d36e779a661ea9135adc4034d56bb5f5ea",
+    "fixtures/CVE-2021-45046.json": "a2613d058c9366c284feebd7121b36a689c852edc862e7a58264c93b1b4acdf9",
+    "fixtures/CVE-2021-45105.json": "02d824c9fffbdeaeb76c32d0f80b17205a46afcb17f92f60e392fdd1b7024684",
+    "synthetic_search/keyword-0.json": "7978f97ae19263b409c8d7a47672fe4e4e1095f148840066620d62aa70316e92",
+    "synthetic_search/keyword-2.json": "084b2fcd975decc3b6b64af3fb3acfa79c3fc40583da399f6095e21b37ce20f0",
+    "synthetic_search/keyword-4.json": "89809899ec153f4f959359409c3f79254108fc22508cfd7ff1d49b6989f60fd9",
+    "synthetic_search/manifest.json": "c88c9174d591524b4fde57326836184ce696cb21d875a838cf92e5a6dd72ee84",
+    "synthetic_search/product-0.json": "7a372b8c79609bcc393db30ae8dc91a3240a973e9fab124dbd392172984e0f8d",
+    "synthetic_search/product-2.json": "713be70c82a8f2ae396d2ce51279990d1063bd2951e0ae067ae1c2cf18f009b2"
+  }
+}
