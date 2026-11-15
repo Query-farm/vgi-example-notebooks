@@ -2292,7 +2292,7 @@ wheels = [
 
 [[package]]
 name = "vgi-example-notebooks"
-version = "0.3.40"
+version = "0.3.41"
 source = { editable = "." }
 dependencies = [
     { name = "haybarn" },

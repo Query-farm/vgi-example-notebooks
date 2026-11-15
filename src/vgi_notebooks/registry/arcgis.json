@@ -1,0 +1,8 @@
+{
+  "key": "arcgis",
+  "repository": "Query-farm/vgi-arcgis",
+  "revision": "3d1cefd0f633617f4654c118c994e963cb8b9226",
+  "files": {
+    "arcgis_example.py": "9487395e62e9e9f25e732fc0c21506355014c503c52a1e64f748ce13ab5ae43f"
+  }
+}

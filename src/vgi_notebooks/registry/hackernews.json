@@ -1,0 +1,11 @@
+{
+  "key": "hackernews",
+  "repository": "Query-farm/vgi-hackernews",
+  "revision": "cfd5583015f8c047c13dc22e289d21ea49331440",
+  "files": {
+    "hackernews_example.py": "e419009f421cdd07948968d65ad8cbda701e33f5f8d17bd7febdaa641a80738d",
+    "fixtures/ranking-pack.json.gz": "064cadfbe1f91fd31fedb8ec85b408c28fd8b7505b98b23940f69c48bc062d25",
+    "fixtures/thread-pack.json.gz": "c50779f4be2c1ea65d93cafc8ea504c4fd4d82e988082e7f9eb885cb6f8f0ec3",
+    "fixtures/recent-pack.json.gz": "da7fd4d0e189d630a3b840c3b725a09edb2bda4c90850a46977102110e6aec06"
+  }
+}
