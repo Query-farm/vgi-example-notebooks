@@ -1,0 +1,17 @@
+{
+  "repository": "Query-farm/vgi-tennis",
+  "revision": "fd006d9cf6a3c555dd4052a10b2b4a474e3e3925",
+  "files": {
+    "tennis_example.py": "0f795814f3204d48420e0bc15e84cc936f8884e08834601d4812e28def7f79cb",
+    "recordings/australian-open-2026.json": "b424cd16aee7c3810a8e8dcb3a03f271a6eedc8217679c0a158e4d904665b538",
+    "recordings/provenance.json": "9e260d7d5956461d4b6aedd7d9bf809ae2f48b411268167ead7e0b45be390da5",
+    "recordings/extended-provenance.json": "1962799270b9163f4adae75b299c430d98907c25d5b9a3ef8405804dc1f617c5",
+    "recordings/wta-rankings-0.json": "737b761cb40e8ceb2123c44ed5bc9d9da92be4ce7f13f80058f5dfd42d4cd748",
+    "recordings/wta-rankings-1.json": "424518ac5345d3775ed1d08fff3ca636327aa3a7940020207fccbdd14f896cb8",
+    "recordings/atp-rankings.json": "64bfc402df17580265f1c8d8c886234bb2cf7b8f8fe376d19506d50a28ed16df",
+    "recordings/wta-calendar-0.json": "3f83c5eb3c6b78d7c6eba32d20dc344b66de57e4214d37c2d7208c2dce568437",
+    "recordings/wta-calendar-1.json": "b743542b9481ff59aba258d8d5b674400b95d63ec781c9595c08503932fabf86",
+    "recordings/rybakina-profile.json": "a353f1b2b5770eed251b78b315251489775e6731cbec3e41814ef5bc71b55957",
+    "recordings/rybakina-matches-0.json": "8294d5f4acd3678a646b8c09efc386017ed494f1f39f0fc1bbbbd232658c75f7"
+  }
+}

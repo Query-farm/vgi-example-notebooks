@@ -1,0 +1,10 @@
+{
+  "repository": "Query-farm/vgi-fhir",
+  "key": "fhir",
+  "revision": "689dc0cd6524e6a94f6119ba71b4a1266a23e37d",
+  "files": {
+    "fhir_example.py": "277aced24289e348e04726e86f384d79d48d4f05520455b7c8f7bff0d1ca96d3",
+    "fixture_server.py": "a9e41cae19f4838d75aa159555d49368f05ec784e013ca7a1f21563c73e2be70",
+    "synthetic_resources.json": "e800fb04fe1b4d4f1ecaba0e1f5d5345c82d8b8fbd9d218492e09dfd16094f45"
+  }
+}
