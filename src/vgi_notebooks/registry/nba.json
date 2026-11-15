@@ -1,0 +1,11 @@
+{
+  "repository": "Query-farm/vgi-nba",
+  "revision": "8f50f1e9dc26fa8712e5b965d18d7798e28d724b",
+  "files": {
+    "nba_examples.py": "c2f8d7fcd9588edf312081f7bcd456af7ac2b09570622f6cc80feadd2e0b48fd",
+    "make_synthetic_fixtures.py": "4aff3ce0f054c76adbdce747f1f712acd38c67d1ad2246b206796eb1143da1e3",
+    "fixtures/synthetic-responses.json": "43bc74457965fe1dae12df40b25638edb38a056ccbcfba96e78a2e56e6cc0ff8",
+    "fixtures/leaguegamelog.json": "a02b47065c06caaef65deb2347b4a6a203412b65da7e697c087ffe69a7c010e2",
+    "fixtures/provenance.json": "2f87849cf9adc8c98ac2c6af55334324a0bc6d4978d2afbcdb5851db4494855a"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "repository": "Query-farm/vgi-rerank",
+  "revision": "b6963289a896366aec69f4dce98433e86afaaafc",
+  "files": {
+    "rerank_example.py": "6f60d830eec1744c4dcac2763ce728f3f2bfff776049cb0d34ef0f59d6773a83",
+    "model_assets.py": "2c91f93aa4a2f09bea01556ae9a5890fb5e9b7768de0de1f529ac44273041702",
+    "model-manifest.json": "3ba15e45e7ba4bfab4529c3aa1e32b7ca69652e2636b3502232756f1f58203e6",
+    "fixtures/candidates.json": "c03bdafa14c1113e4d2f2b8217277b286fff29194477e9285da9edfb9a7b9753",
+    "fixtures/provenance.json": "2eb721ce0b0b8cf751b87037181b795366d2e4b7f4573fb1e8f84c0a9daa397c"
+  }
+}
