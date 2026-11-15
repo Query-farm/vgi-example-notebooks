@@ -1,8 +1,8 @@
 {
   "key": "yfinance",
   "repository": "Query-farm/vgi-yfinance",
-  "revision": "aa785791e07d1142db8be3fea34160eda634268e",
+  "revision": "a94ad097d7dd8dd835789b03499f0518b9c006ec",
   "files": {
-    "yfinance_example.py": "3e46d6bc4893777ec7555e679c875c31ed006dc5019e2e684ebf633088f49d50"
+    "yfinance_example.py": "434950e2b2c44f65b8ca38748b368a76d5a06caed2b1609a8adc53bcd728fe14"
   }
 }

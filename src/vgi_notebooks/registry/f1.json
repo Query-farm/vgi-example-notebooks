@@ -1,0 +1,13 @@
+{
+  "repository": "Query-farm/vgi-f1",
+  "revision": "82291f65fcd23c2b7d4edd4a9157c6632e84a54a",
+  "files": {
+    "f1_example.py": "bd0a66de9266fdfabf77444f2aeac6dbce8714ed45364d311b6794a6e19c3eb0",
+    "replay_source.py": "a316b82047f99a51295b473cde4e540ebe06aa702b2190dbcba76613c53d70ff",
+    "fixtures/laps.json": "2d62552518f9865f157ab583fdf339d8589b91f0c1a9a7b263865017764c0edf",
+    "fixtures/pitstops.json": "92b09337d20cb327a201a3a565b0c06f3be2621ad291272b8f7f0e0fa9cc7fc1",
+    "fixtures/manifest.json": "a5f202eaa8474332e535952f1c6e1ae01a3100b2ff92fbced3c40087bdf315fc",
+    "recordings/weekend.json.gz": "40d4742a752db58333e52a949a9d133e4ff5831c4a4decb5171002bf7f1d406d",
+    "recordings/session.json.gz": "a64c00a9d7847d69d906530959283bf21e97568820b191b8666df55e4dbafb71"
+  }
+}
