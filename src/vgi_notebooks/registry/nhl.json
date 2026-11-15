@@ -1,0 +1,26 @@
+{
+  "repository": "Query-farm/vgi-nhl",
+  "revision": "17baadf778f6f17ad541d34207ae79e513b72fcb",
+  "files": {
+    "nhl_examples.py": "29a7c583ebe64444390780f74eb93a8c32b01a14ccbdc68baf94e501283b1c06",
+    "recordings/final-2024-standings.json": "655eef1adf6d7163fd0ce3d7bfcac5122bbd1fb0011ac7d5ad3ea225dd688153",
+    "recordings/franchises.json": "9d413559ade04cd58598e7d9a51630abfb313d366316b71109375a83d0c70b9d",
+    "recordings/marchand-2024-log.json": "86fe5dfcd6ef64dd5a3a47e7e98c14ba13cac9e072f86ed93ad257a9055cf89e",
+    "recordings/marchand-profile.json": "24ae11a52e7d8aa83c52a1de813741a8ce69f4740d0438ddbd46249fe2ea658e",
+    "recordings/opener-boxscore.json": "75b9bf588856203f7338580c59b0f1b639a84ac29247c6580d57b4442446f8eb",
+    "recordings/opener-scores.json": "1e98aa5c21bdce4041b4b0692c3fd8f86a07d311614771f7918432f24c5241ac",
+    "recordings/opener-week.json": "b144069715536dd601da5e39bc44f6bd93fa5e326dc4ef462487f60698aaa52f",
+    "recordings/panthers-2024-roster.json": "271027ca40c776c327a8c4cecf2ae8480c1f8026f03184632b06b86e63a525f6",
+    "recordings/panthers-2025-schedule.json": "be04d2bcd98bbf2713869ad5c4124bc67ba584d10076bbf26a1c1b65070648f8",
+    "recordings/provenance.json": "88444b98b597504504f497bd2155e926587e3920ec0f746e5f7af153d96ba65a",
+    "recordings/season-windows.json": "b8beefe5837b3ee3cbdc917b690933c579344eff30b326ff584122b2d4bbd556",
+    "recordings/skater-points-2024.json": "542b3234be95b317423383a8cd14bc106fc5cb834c0b44b6c730b0b1220847ec",
+    "recordings/skater-realtime-2024.json": "ce26b93071cc803557fa705f7aa870e1d65e762503cec47262cc7f5a845e9efa",
+    "recordings/skater-summary-2024.json": "677a69da40d3449490cab86f51579d7a5ea262966b43760a63c34e01e64552f2",
+    "recordings/team-summary-2024.json": "33bed9a352587cea2e16f4c3174a62de01e360c5b31d23c24fa63b9f255e986a",
+    "recordings/teams.json": "d692a7b564603459d12462dd37de7347b6d52f8fce8d8004eb212742cc993337",
+    "fixtures/play_by_play_2025020001.json": "afde785603df8c40f694892169e6f8e05d102e8add2c7baa70fcdc4bb5766b7a",
+    "fixtures/provenance.json": "8f604be6f4de1c27d391acb81c1397c0fbc74c387c1e50b86a2459457e45123e",
+    "fixtures/shiftcharts_2025020001.json": "694fab1c9b99dfe686750a72ba88a446b8f3fc47dc9f54d59d0f1c5a2bae5710"
+  }
+}

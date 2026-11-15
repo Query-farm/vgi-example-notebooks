@@ -1,0 +1,14 @@
+{
+  "repository": "Query-farm/vgi-odata",
+  "revision": "8c232a8e29fd6acd7e26f468075913df56416533",
+  "files": {
+    "synthetic_odata.py": "4496b4f8696e3a086614580b6c50458a687aff6396133d2f87ea2eba7df1c512",
+    "public_odata.py": "19976254fd065e4b95cf243bba0fb5eebba9f21560d179bb44e7533f08e947e7",
+    "fixtures/products.json": "4674cbfe3e1b69834711b550e97f0e3a38030128c6c0c5972e4da08a5d999daa",
+    "fixtures/provenance.json": "bb901c1110686d8510131baba0eb8ded8f2d22a7dfcffd6a63f94718a7e5e8d0",
+    "recordings/service.json": "d3fa0b87af38ab0a6a1de7d14ee8fef30241db852626239e0dddd15016ebb1f1",
+    "recordings/metadata.xml": "81a48488cd2911f7254170da5403628db22127ea59124d6597d04c6af18d7702",
+    "recordings/products.json": "8e4cf5525af4b95c10aea93bf03e23b848346e3e58021226a5634ad07435fe1f",
+    "recordings/provenance.json": "c767c76b8dbb2c0de1d39a7f8a79a182aed84d2bf9e4288bb55b0d327d99e19b"
+  }
+}
