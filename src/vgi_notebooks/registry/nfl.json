@@ -1,0 +1,22 @@
+{
+  "repository": "Query-farm/vgi-nfl",
+  "revision": "d59f712168d00eb606aa318d508e42cc49f80e1b",
+  "files": {
+    "nfl_examples.py": "8119215a04611dc9e7944ede43618d5152f4ffd5d9e1600f8646a9fd5a8dd102",
+    "recordings/expected-passing.parquet": "c792f644854841feef9018e13ead9f512d959c824ad9cef7ade477deac1b2c41",
+    "recordings/expected-receiving.parquet": "026d8c9533f6b2041e3883418b67c704c0b90d3275f24e9f3071143e17cc0392",
+    "recordings/expected-rushing.parquet": "f4687790b10317eb30973c78714370b4deb6c6ce2fe94a071944d2d024a77259",
+    "recordings/game-schedule.json": "9b4753d34510b917ee2aa47c4a301b83e2eb5a0f611b3e3c15d31a6c19f624a4",
+    "recordings/game-scoreboard.json": "d740b3709eafa1496a5cb09ef11c0a9d7597c59839d3671f7ce28b76c07c8f05",
+    "recordings/game-summary.json": "470390acdbedbea0b6d171ed6fd60ea0618ba8df5056cca0e5682be209e8df63",
+    "recordings/game-teams.json": "3fe09b93a01664b6347d3dbafc676cd5f011af792f0e58035353f170d1183014",
+    "recordings/provenance.json": "7414b3f1d815b7bc722a2bcfb273a7641767aac2edb5a3d3bacfa799f8276d7b",
+    "recordings/totals-players.parquet": "5da9e67a7515e657234b2ea59a34c3bc79f44969936fc10266f2f4c0230ab570",
+    "recordings/totals-schedule.parquet": "c20963a9cde32486d45e6397d5883cc5cec35aed8a742b3c6c9f454e027cb730",
+    "recordings/totals-season.parquet": "47e73b56b12e883be620f2497cfc7f55350618414fc35710a89f0b3e651c8c68",
+    "recordings/totals-teams.parquet": "ff14130e05bda5317f3d4b182116e7e03a637ba2d79f9110ab1aa7288aeefea8",
+    "recordings/totals-weekly.parquet": "2a461becaa9adb3c93a3074a3a31f1e960162a50163371a2d34e28393b5fff10",
+    "fixtures/manifest.json": "bbcbeba9f1ebd07a3a27327b83f2642e21eb5a938ff3b3322d3622683f39e659",
+    "fixtures/snap-counts-2025.parquet": "47220218fecda7af7ee5b0272a8ecce7c1bfb1f4e1f0a2c8c90047571728ce20"
+  }
+}
